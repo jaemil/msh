@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Orte_Raeumlichkeiten extends Component {
+export default class Partner extends Component {
     render() {
         return (
             <div>

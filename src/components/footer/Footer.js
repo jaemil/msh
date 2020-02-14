@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 
 export default class Footer extends Component {
     render() {
+        
+
         return (
-            <div>
-                test
+            <div className="footer">
+                © Musikschule Hopf
             </div>
         )
     }
