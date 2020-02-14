@@ -18,8 +18,7 @@ import {
     Link
 } from "react-router-dom";
 
-import "../../css/style.css"
-
+import "../../css/style.css";
 
 
 const _Navbar = (props) => {
@@ -30,13 +29,11 @@ const _Navbar = (props) => {
 
         return (
             <div className="nav">
-                <Navbar className="nav navbar-dark" light expand="md">
+                <Navbar className="nav navbar-dark py-0" light expand="md">
                     <NavbarToggler onClick={toggle} />
                         <Collapse color="light" isOpen={isOpen} navbar>
                         <Nav  navbar>
                             <ul>
-                                <h5 className="logo"><font color="E85648">H</font><font color="52adbb">O</font><font color="3dc097">P</font><font color="EB7E35">F</font></h5>
-
                                     <li><Link to="/"><a id="g" onclick="scrollWin()"><h1><font color="3dc097">HOME</font></h1></a></Link></li>
                                 <li>
                                     
@@ -72,6 +69,7 @@ const _Navbar = (props) => {
                         </Nav>
                     </Collapse>
                     </Navbar>
+                
             </div>
         );
     }

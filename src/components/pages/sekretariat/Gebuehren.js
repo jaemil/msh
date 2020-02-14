@@ -10,7 +10,7 @@ export default class Gebuehren extends Component {
                 Für jede Neuanmeldung erheben wir einmalig 5 € Anmeldegebühren.
 
                 Unterrichtsgebühren
-                <Table>
+                <Table dark>
                     <thead>
                         <tr>
                             <th>Kurz</th>
@@ -66,7 +66,7 @@ export default class Gebuehren extends Component {
                 </Table>
 
                 Instrumenten-Leihgebühren
-                <Table>
+                <Table dark bordered size="sm">
                     <thead>
                         <tr>
                             <th>Instrument</th>

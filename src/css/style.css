@@ -7,21 +7,13 @@
 
 .nav
 {
+    left: 0;
     margin: auto;
    position: sticky;
   top: 0;
-  z-index: 100;
-
-}
-
-hr
-{
-    border:none;
-  height: 20px;
- 	width: 100%;
-	height: 50px;
+  box-shadow: white;
 	box-shadow: 0 20px 20px -20px rgb(0, 0, 0);
-  margin: -50px auto 10px; 
+  z-index: 100;
 }
 
 h2/*ueberschrift*/
@@ -76,7 +68,7 @@ a
 font-family: 'Chewy', cursive;    
 font-size: 20px;
     color: #6e6e6e;
-    
+    padding: 10px 10px 10px 10px;
 }
 
 .FragenAntworten
@@ -278,7 +270,7 @@ body
     display: none;
     position: absolute;
     /*background-color:rgb(10,10,10);*/
-    padding: 10px;
+    padding: 0px;
     border-radius: 0px 0px 16px 16px;
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,1);
 }
@@ -427,7 +419,8 @@ body
 
  .logo
  {
-    display: none;
+    position: absolute;
+   z-index: 1000;
  }
 
  .contentframe 
@@ -484,7 +477,7 @@ body
     font-family: Arial, Helvetica, sans-serif;
     color: rgba(0, 0, 0);
     font-size: 25px;
-    padding: 22px 20px;
+    padding: 3px 10px 0px 10px;
     text-decoration: none;
     text-align: center;
 }

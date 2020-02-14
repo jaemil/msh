@@ -53,7 +53,6 @@ body::-webkit-scrollbar-thumb {
 
 
 
-
 .navbar-toggle.collapsed {
     background-color: #ffffff !important;
 }
@@ -66,7 +65,7 @@ body::-webkit-scrollbar-thumb {
 
 .Main
 {
-padding: 0% 12% 20% 12%;
+padding: 2% 14% 0% 14%;
 z-index: -100;
 }
 
