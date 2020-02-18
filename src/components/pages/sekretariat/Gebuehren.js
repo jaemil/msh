@@ -5,15 +5,15 @@ export default class Gebuehren extends Component {
     render() {
         return (
             <div>
-                <h1>Gebühren</h1>
-                Anmeldegebühren
-                Für jede Neuanmeldung erheben wir einmalig 5 € Anmeldegebühren.
+                <h2 className="r">Gebühren</h2>
+                <h3>Anmeldegebühren</h3>
+                <p style={{textAlign: "center"}}>Für jede Neuanmeldung erheben wir einmalig 5 € Anmeldegebühren.</p>
 
-                Unterrichtsgebühren
-                <Table dark>
+                <h3>Unterrichtsgebühren</h3>
+                <Table dark borderless>
                     <thead>
                         <tr>
-                            <th>Kurz</th>
+                            <th>Kurs</th>
                             <th>Dauer</th>
                             <th>Gruppengröße</th>
                             <th>Monatsgebühr je Schüler</th>
@@ -24,7 +24,7 @@ export default class Gebuehren extends Component {
                             <td>Instrumental- und Gesangsunterricht</td>
                             <td>Wö. 30 Min.</td>
                             <td>Einzel / 2er- / 3er Gruppe</td>
-                            <td>@69 € / 39 € / 33 €</td>
+                            <td>69 € / 39 € / 33 €</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -65,8 +65,8 @@ export default class Gebuehren extends Component {
                     </tbody>
                 </Table>
 
-                Instrumenten-Leihgebühren
-                <Table dark bordered size="sm">
+                <h3>Instrumenten-Leihgebühren</h3>
+                <Table dark borderless>
                     <thead>
                         <tr>
                             <th>Instrument</th>

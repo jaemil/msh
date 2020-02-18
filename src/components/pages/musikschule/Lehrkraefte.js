@@ -95,8 +95,9 @@ export default class Lehrkraefte extends Component {
         ]
 
         return (
-            <div>
-                <Gallery className='gallery' images={IMAGES} backdropClosesModal={true} showImageCount={false} enableImageSelection={false} thumbnailWidth={250} thumbnailHeight={375} rowHeight={500}/>
+            <div className='gallery'>
+                <h2 className = "b">Lehrkräfte</h2>
+                <Gallery images={IMAGES} backdropClosesModal={true} showImageCount={false} enableImageSelection={false} thumbnailWidth={250} thumbnailHeight={375} rowHeight={500}/>
             </div>
         )
     }

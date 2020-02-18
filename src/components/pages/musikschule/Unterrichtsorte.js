@@ -4,7 +4,7 @@ export default class Unterrichtsorte extends Component {
     render() {
         return (
             <div>
-                
+                <h2 className="b">Unterrichtsorte</h2>
 Hauptgeschäftsstelle Kirchheim unter Teck
                 Fußgängerzone, Marktstraße 38 - Eingang rechts neben Bäckerei Scholderbeck
 

@@ -6,7 +6,7 @@ export default class Footer extends Component {
 
         return (
             <div className="footer">
-                © Musikschule Hopf
+                <p style={{textAlign: "center", padding: "50px 0px 20px 0px"}}>© Musikschule Hopf</p>
             </div>
         )
     }

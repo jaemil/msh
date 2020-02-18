@@ -18,7 +18,6 @@ import {
     Link
 } from "react-router-dom";
 
-import "../../css/style.css";
 
 
 const _Navbar = (props) => {

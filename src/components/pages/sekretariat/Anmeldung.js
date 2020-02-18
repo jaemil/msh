@@ -23,6 +23,7 @@ export default class Anmeldung extends Component {
     render() {
         return (
             <div>
+                <h2 className = "r">Anmeldung</h2>
                 Hier kannst du dich für den Unterricht bei der Musikschule Hopf anmelden.
                 Der Prozess ist ganz einfach, er besteht aus 3 Schritten.
                 **1. Online Formular ausfüllen:**

@@ -1,42 +1,130 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    background-color:rgb(20, 20, 20);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2/*Ueberschrift*/
+{
+    text-align: center;
+    font-family: 'Hwyl fawr Hello';
+    font-size: 40px!important;
+    padding: 20px 20px 20px 20px;
+	box-shadow: 0 20px 20px -20px rgb(0, 0, 0);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+h3/*unter Ueberschrift*/
+{
+    text-align: center;
+    font-size: 25px!important;
+    font-weight: bold!important;
+    padding: 60px 20px 25px 20px;
+    color: white;
+    box-shadow: 0 20px 0px -20px rgb(0, 0, 0);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+p
+{
+  color: white!important;
+  background-color: transparent;
 }
 
-.App-link {
-  color: #61dafb;
+.nav
+{
+    left: 0;
+    margin: auto;
+    position: sticky;
+    top: 0;
+    box-shadow: white;
+	box-shadow: 0 20px 20px -20px rgb(0, 0, 0);
+    z-index: 100;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.textCenter
+{
+    text-align: center;
 }
 
+.nav ul li ul li a.r
+{
+    color: #E85648;
+}
+
+.nav ul li ul li a.b
+{
+    color: #52adbb
+}
+
+.nav ul li ul li a.g
+{
+    color: #52adbb
+}
+
+.nav ul li ul li a.o
+{
+    color: #EB7E35;
+}
+
+
+.nav ul li ul li a.r:hover
+{
+    background: #E85648;
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li ul li a.b:hover
+{
+    background: #52adbb;
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li ul li a.g:hover
+{
+    background:  #52adbb;
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li ul li a.o:hover
+{
+    background: #EB7E35;
+    color: rgb(0, 0, 0);
+}
+
+
+.r
+{
+    color: #E85648;
+}
+
+.b
+{
+    color: #52adbb
+}
+
+.g
+{
+    color: #52adbb
+}
+
+.o
+{
+    color: #EB7E35;
+}
+
+.textLeft
+{
+    color: white;
+
+}
+
+.imgRight
+{
+    
+}
+
+
+/*Custom Scrollbar*/
 body::-webkit-scrollbar {
   width: 0.3rem;
 }
@@ -50,24 +138,379 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
   border-radius: 50px;
 }
+/*Custom Scrollbar*/
 
 
-
-.navbar-toggle.collapsed {
-    background-color: #ffffff !important;
-}
-
-.gallery
+.UnterrichtsfächerText
 {
-  width: 100%;
-  
+    display: inline-block;
+    font-weight: bold;
+    font-Size: 25px;    
+    margin: 0px 0% 0px 15%;
+    background-color: transparent; 
 }
 
-.Main
+.UnterrichtsfächerImg
 {
-padding: 2% 14% 0% 14%;
-z-index: -100;
+    margin: 20px 0% 20px 30%; 
+    background-Color: transparent;
 }
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 991px)/*Mobile Ansicht*/
+{
+    h1/*nav*/
+    {
+        font-family: 'Hwyl fawr Hello';
+        font-size: 22px;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .Main
+    {
+        padding: 2% 5% 0% 5%;
+        z-index: -100;
+    }
+
+    .gallery 
+    {
+        padding-left: 0%;
+    }
+
+    .banner img
+    {
+    display: none;
+    }
+
+    .logo
+    {
+        display: none;
+    }
+
+    .nav ul
+    {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        /*background-color: rgb(0, 0, 0);nav Banner Farbe*/
+    }
+
+    .nav li
+    {
+        display: inline-block;
+
+    }
+
+    .nav ul li
+    {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+
+    .nav ul li a
+    {
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgba(0, 0, 0);
+        font-size: 25px;
+        padding: 20px 5px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .nav ul li ul
+    {
+        display: none;
+        position: absolute;
+        /*background-color:rgb(10,10,10);*/
+        padding: 0px;
+        border-radius: 0px 0px 16px 16px;
+        box-shadow: 0px 0px 20px 0px rgba(0,0,0,1);
+    }
+
+    .nav ul li:hover ul
+    {
+        display: block;
+    }
+
+    .nav ul li ul li
+    {
+        width: 70px;
+        border-radius: 4px;
+    }
+
+    .nav ul li.o ul li
+    {
+        display: none;
+    }
+
+    .nav ul li ul li a
+    {
+        padding: 6px 4px;
+        font-size: 14px;
+        transform: translateY(-0.8rem);
+        animation: slideInDown 0.7s forwards;
+        font-family: 'Hwyl fawr Hello';
+        border-radius: 16px;
+    }
+
+    /*Page: Fragen Antworten*/
+.Collapsible
+{
+    margin: 10px 10px 10px 10px;
+    background-color:rgb(15, 15, 15);
+    border-radius: 20px 20px 20px 20px;
+}
+
+.Collapsible__trigger
+{
+    font-size: 18px;
+    font-weight: lighter;
+    color: white;
+    background-color:rgb(15, 15, 15);
+    cursor: pointer;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.Collapsible__contentOuter
+{
+    border-radius: 0px 0px 20px 20px;
+}
+
+.Collapsible__contentInner
+{
+    font-weight: lighter;
+    text-align: left;
+    color: white;
+    background-color:rgb(25, 25, 25);
+    padding: 10px 20px 10px 20px;
+    border-radius: 0px 0px 20px 20px
+}
+/*Page: Fragen Antworten*/
+
+}
+
+
+@media only screen and (min-width: 992px)/*destop*/
+{
+
+    h1/*nav*/
+    {
+        font-family: 'Hwyl fawr Hello';
+        font-size: 33px!important;
+        font-weight: bold!important;
+        padding: 3px 10px 3px 10px;
+    }
+
+    .Main
+    {
+        padding: 2% 20% 0% 20%;
+        z-index: -100;
+    }
+
+    .gallery 
+    {
+        padding-left: 0%;
+    }
+    
+    .banner img
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+    }
+
+    .nav
+    {
+        transform: translateX(-100rem);
+        animation: slideIn .7s forwards;
+    }
+
+    .logo
+    {
+        position: absolute;
+        z-index: 1000;
+    }
+
+    .nav ul
+    {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        /*background-color: rgb(0, 0, 0);nav Banner Farbe*/
+    }
+
+    .nav li
+    {
+        display: inline-block;
+
+    }
+
+    .nav ul li
+    {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+
+    .nav ul li a
+    {
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgba(0, 0, 0);
+        font-size: 25px;
+        padding: 3px 10px 0px 10px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .nav ul li ul
+    {
+        display: none;
+        position: absolute;
+        /*background-color:rgb(10,10,10);*/
+        padding: 10px;
+        border-radius: 0px 0px 16px 16px;
+        box-shadow: 0px 0px 20px 0px rgba(0,0,0,1);
+    }
+
+    .nav ul li:hover ul
+    {
+        display: block;
+    }
+
+    .nav ul li ul li
+    {
+        width: 140px;
+        border-radius: 4px;
+    }
+
+    .nav ul li.o ul li
+    {
+        width: 240px;
+        border-radius: 4px;
+    }
+
+    .nav ul li ul li a
+    {
+        padding: 3px 1px;
+        font-size: 22px;
+        transform: translateY(-1.0rem);
+        animation: slideInDown .35s forwards;
+        font-family: 'Hwyl fawr Hello';
+        border-radius: 16px;
+    }
+
+
+    /*Page: Fragen Antworten*/
+.Collapsible
+{
+    margin: 10px 10px 10px 10px;
+    background-color:rgb(25, 25, 25);
+    border-radius: 20px 20px 20px 20px;
+    
+}
+
+.Collapsible:hover
+{
+     background-color:rgb(25, 25, 25);
+}
+
+.Collapsible__trigger
+{
+    font-size: 18px;
+    font-weight: normal;
+    color: white;
+    background-color:transparent;
+    cursor: pointer;
+    border-radius: 20px;
+    
+}
+
+.Collapsible__contentOuter
+{
+    border-radius: 0px 0px 20px 20px;
+}
+
+.Collapsible__contentInner
+{
+    font-weight: lighter;
+    text-align: left;
+    color: white;
+    background-color:rgb(25, 25, 25);
+    padding: 10px 20px 10px 20px;
+    border-radius: 0px 0px 20px 20px
+}
+
+.img_text_hover
+{
+    background-color:rgb(15, 15, 15);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.img_text_hover:hover
+{
+    background-color:rgb(25, 25, 25);
+}
+/*Page: Fragen Antworten*/
+
+    @keyframes slideIn
+    {
+        from
+        {
+
+        }to
+        {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOut
+    {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-20%); }
+    }
+
+    @keyframes slideInDown
+    {
+        from
+        {
+        }
+        to
+        {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes bounce
+    {
+        from
+        {
+
+        }
+        to
+        {
+            transform: translateY(0);
+        }
+    }
+}
+
 
 .footer
 {
