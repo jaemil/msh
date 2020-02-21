@@ -22,6 +22,7 @@ h3/*unter Ueberschrift*/
     padding: 60px 20px 25px 20px;
     color: white;
     box-shadow: 0 20px 0px -20px rgb(0, 0, 0);
+    background-color: transparent;
 }
 
 p
@@ -141,20 +142,7 @@ body::-webkit-scrollbar-thumb {
 /*Custom Scrollbar*/
 
 
-.UnterrichtsfächerText
-{
-    display: inline-block;
-    font-weight: bold;
-    font-Size: 25px;    
-    margin: 0px 0% 0px 15%;
-    background-color: transparent; 
-}
 
-.UnterrichtsfächerImg
-{
-    margin: 20px 0% 20px 30%; 
-    background-Color: transparent;
-}
 
 
 
@@ -265,22 +253,24 @@ body::-webkit-scrollbar-thumb {
         border-radius: 16px;
     }
 
-    /*Page: Fragen Antworten*/
+/*Page: Fragen Antworten*/
 .Collapsible
 {
     margin: 10px 10px 10px 10px;
-    background-color:rgb(15, 15, 15);
+    background-color:rgb(25, 25, 25);
     border-radius: 20px 20px 20px 20px;
+    
 }
 
 .Collapsible__trigger
 {
     font-size: 18px;
-    font-weight: lighter;
+    font-weight: normal;
     color: white;
-    background-color:rgb(15, 15, 15);
+    background-color:transparent;
     cursor: pointer;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
+    
 }
 
 .Collapsible__contentOuter
@@ -297,7 +287,31 @@ body::-webkit-scrollbar-thumb {
     padding: 10px 20px 10px 20px;
     border-radius: 0px 0px 20px 20px
 }
+
+.img_text_hover
+{
+    background-color:rgb(15, 15, 15);
+    border-radius: 20px;
+    padding: 10px;
+}
+
 /*Page: Fragen Antworten*/
+
+
+.UnterrichtsfächerText
+{
+    display: inline-block;
+    font-weight: bold;
+    font-Size: 20px;    
+    margin: 0px 0% 0px 15%;
+    background-color: transparent; 
+}
+
+.UnterrichtsfächerImg
+{
+    margin: 20px 0% 20px 20%; 
+    background-Color: transparent;
+}
 
 }
 
@@ -322,6 +336,8 @@ body::-webkit-scrollbar-thumb {
     .gallery 
     {
         padding-left: 0%;
+        margin-Left: 6%;
+        margin-right: 0%;
     }
     
     .banner img
@@ -470,6 +486,21 @@ body::-webkit-scrollbar-thumb {
 }
 /*Page: Fragen Antworten*/
 
+.UnterrichtsfächerText
+{
+    display: inline-block;
+    font-weight: bold;
+    font-Size: 25px;    
+    margin: 0px 0% 0px 15%;
+    background-color: transparent; 
+}
+
+.UnterrichtsfächerImg
+{
+    margin: 20px 0% 20px 30%; 
+    background-Color: transparent;
+}
+
     @keyframes slideIn
     {
         from
@@ -515,4 +546,32 @@ body::-webkit-scrollbar-thumb {
 .footer
 {
 
+}
+
+label
+{
+    width: 30%;
+    color: white;
+}
+
+.registration-text
+{
+    width: 60%;
+    margin: 5px;
+    background-color: rgb(15, 15, 15);
+    border-style: none;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.registration
+{
+    
+}
+
+.kp
+{
+    background-color: rgb(15, 15, 15)!important;
+    padding: 20px;
+    border-radius: 20px;
 }

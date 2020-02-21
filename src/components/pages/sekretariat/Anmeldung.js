@@ -45,9 +45,10 @@ export default class Anmeldung extends Component {
                 **Bitte alle <span style={{ color: 'orange' }}>orange markierten Felder</span> ausfüllen! Auf den "Absenden"-Button kann erst
                 geklickt werden, wenn alle erfolderlichen Felder nach Eingabe der erforderlichen Daten grün sind!**
         <form className="registration" acceptCharset="UTF-8">
-                    <h2>
+            
+                    <h3 className="r">
                         Schülerdaten:
-          </h2>
+          </h3>
                     <label htmlFor="registration-name">Vorname:</label>
                     <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-name" name="name" placeholder="Vorname" maxLength={25} />
                     <br />
@@ -110,9 +111,9 @@ export default class Anmeldung extends Component {
                         <br />
                     </div>
                     <hr />
-                    <h2>
+                    <h3 className="r">
                         Unterrichtsdaten:
-          </h2>
+          </h3>
                     <i>Bitte alles ausfüllen.</i>
                     <br />
                     <label htmlFor="registration-lecture">Instrument:</label>
@@ -192,9 +193,9 @@ export default class Anmeldung extends Component {
                     <input className="registration-hidden" id="registration-unit" type="text" name="unit" maxLength={12} />
                     <br />
                     <hr />
-                    <h2>
+                    <h3 className="r">
                         SEPA-Lastschrift
-          </h2>
+          </h3>
                     <div id="registration-is-payer" style={{ cursor: 'pointer' }}>
                         <input type="checkbox" id="registration-data-transfer-checkbox" name="is-payer" /> Schüler ist Zahlender
           </div>
@@ -218,6 +219,7 @@ export default class Anmeldung extends Component {
                     <br />
                     <label htmlFor="registration-sepa-iban">IBAN:</label>
                     <input type="text" className="registration-text registration-validation-iban registration-mandatory registration-orange" id="registration-sepa-iban" name="sepa-iban" placeholder="IBAN" />
+                    <br />
                     <label htmlFor="registration-sepa-bic">BIC:</label>
                     <input type="text" className="registration-text registration-validation-bic registration-mandatory registration-orange" id="registration-sepa-bic" name="sepa-bic" placeholder="BIC/SWIFT" />
                     <hr />

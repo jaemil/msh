@@ -28,14 +28,7 @@ export default class Buero extends Component {
                 <h2 className="r">Büro</h2>
                 <br />
 
-                
-
-
-
-                
-
-
-                <Table dark borderless style={{ width: "100%" }}>
+                <Table dark borderless style={{ width: "50%" }}>
                     <tbody>
                         <tr>
                             <td><Table borderless dark style={{ width: "100%", marginLeft: "90px" }}>

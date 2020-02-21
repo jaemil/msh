@@ -5,14 +5,18 @@ export default class Ueber_Uns extends Component {
         return (
             <div>
                 <h2 className="b">Über Uns</h2>
-                <h3>Wer wir sind</h3>
+                
+                <h3 className="b">Wer wir sind</h3>
+                <div className="kp">
                 <p>Eine moderne Musikschule, die sich vorwiegend auf das Unterrichten typischer Band-Instrumente spezialisiert hat. Unser Lehrer-Team besteht aus professionell ausgebildeten Musikern, die mit Humor und begeisternder Leidenschaft unterrichten. Dabei stehen eine angenehme Arbeitsatmosphäre, das Weiterkommen und der Spaß an der Musik im Mittelpunkt.</p>
 
                 <p>Auf der Basis christlicher Werte versuchen wir den Menschen im Blick zu haben, so werden wöchentlich 350 Schüler-/innen von 15 Lehrkräften unterrichtet.</p>
 
                 <p>Musikalisch groß geworden und aufgewachsen sind die meisten von uns in der Kirchheimer Musikszene. Ob an der Musiknacht, in der Bastion, bei einem Nachwuchsfestival im Jugendhaus Linde, in einem Gottesdienst, Podiumsvorspielen, Vernissagen oder Schulevents; wir haben Kirchheim rauf und runter gespielt und besungen und werden dies auch weiterhin tun. Des weiteren treten wir als Musiker und Künstler auch weit über die Grenzen der Region auf.</p>
-                
-                <h3>Was wir anbieten</h3>
+                </div>
+
+                <h3 className="b">Was wir anbieten</h3>
+                <div className="kp">
                 <p>In einladenden Räumlichkeiten und in einem freundschaftlich geprägtem Miteinander Musikunterricht für jede Generation.</p>
 
                 <p>Unterrichtsfächer:</p>
@@ -49,7 +53,10 @@ export default class Ueber_Uns extends Component {
                 <p>…die eine CD aufnehmen oder auch das Produzieren einer CD erlernen möchten.</p>
 
                                             <p>Da jede einzelne Lehrkraft in unterschiedlichen Musik-Genres zu Hause ist, können wir auch konkret in bestimmten Unterrichtsfächern auf bestimmte Musikstile eingehen: Blues, Gipsy-Swing, Jazz, Rock, Worship, Brit-Pop, Irish Folk, Bluegrass, Rockabilly, Kirchenmusik, Gospel, Soul, Klassik, Pop.</p>
-                <h3>Was uns auszeichnet</h3>
+                </div>
+                
+                <h3 className="b">Was uns auszeichnet</h3>
+                <div className="kp">
                 <p>…ein sehr gutes Verhältnis zwischen Lehrer, Eltern und Schüler.</p>
 
                 <p>…wir sind stets darauf bedacht, im Dialog zu bleiben und die Bedürfnisse der Einzelnen zu berücksichtigen.</p>
@@ -59,7 +66,7 @@ export default class Ueber_Uns extends Component {
                 <p>Unter dem intern ausgesprochenen Musikschul-Motto ´Tue der Stadt Gutes´ sind wir seit 10 Jahren mit voller Hingabe sozial engagiert und verknüpfen dabei unsere Herzensangelegenheit mit der Musikschularbeit.</p>
 
                 <p>So veranstalten wir regelmäßig Schüler-Vorspiele in den Senioren- und Pflegeeinrichtungen der Region. Mit den jährlichen Altenheim-Tourneen und vielen, nicht groß angekündigten, Auftritten wollen wir allen alten, bedürftigen und kranken Menschen immer wieder eine musikalische Freude bereiten.</p>
-
+                </div>
             </div>
         )
     }
