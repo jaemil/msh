@@ -4,6 +4,11 @@
     background-color:rgb(20, 20, 20);
 }
 
+@font-face {
+    font-family: 'Hwyl fawr Hello';
+    src: local('Hwyl fawr Hello'), url(./fonts/Hwyl\ fawr\ Hello.ttf) format('truetype');
+  }
+
 h2/*Ueberschrift*/
 {
     text-align: center;
