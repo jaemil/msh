@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import Collapsible from 'react-collapsible';
 
+import {
+    Link
+} from "react-router-dom";
 
 
 export default class Fragen_Antworten extends Component {
     render() {
         return (
-            <div className={"textCenter"}>
+            <div>
                 <h2 className="r">Frage-Antwort</h2>
 <br/>
-                <p>Vielleicht können euch hier schon eure Anliegen beantwortet werden.</p>
+                <div className ="kp"><p>Vielleicht können euch hier schon eure Anliegen beantwortet werden.</p></div>
 
-                <h3 className="r">Schnupperstunden</h3>
+                <h3 className="r" style={{paddingTop: "40px"}}>Schnupperstunden</h3>
 
                 <Collapsible trigger={<div className="img_text_hover" style ={{padding: "10px"}}>Wie funktionieren die zwei Schnuppermonate?</div>} open = "true">
                     <p>Das Angebot der zwei Schnuppermonate hat jeder Schüler, der hier in unsere Musikschule kommt (ausgenommen Teilnehmer von Workshops, Kursen, 10er Karten, Frühes Musizieren). Hierzu brauchen wir als allererstes eine vollständig ausgefüllte, unterschriebene Anmeldung. Danach gibt es eine Eingangsbestätigung von Seiten der Musikschule und dann wird dem Schüler ein Lehrer zugeordnet.</p>
@@ -35,13 +38,10 @@ export default class Fragen_Antworten extends Component {
                     <p>E-Piano: 25 € </p>
                 </Collapsible>
 
-                <h3 className="r">Unterricht</h3>
+                <h3 className="r" style={{paddingTop: "40px"}}>Unterricht</h3>
 
-                <Collapsible trigger={<div className="img_text_hover">Wieviel kostet der Unterricht?</div>}>
-                    
-                </Collapsible>
                 <Collapsible trigger={<div className="img_text_hover">Gebühren der Musikschule Hopf</div>}>
-                    
+                <p style = {{textAlign: "center"}}><Link to="/gebuehren">Gebühren</Link></p>
                 </Collapsible>
                 <Collapsible trigger={<div className="img_text_hover">Wird der Unterricht nachgeholt, wenn der Schüler seinen Termin nicht einhält?</div>}>
                     <p>Es gelten die Bestimmungen des Musikschulvertrages. Wird durch den Schüler der Unterricht abgesagt (wegen Krankheit, Schullandheim, Geburtstage), besteht kein Anspruch auf Ersatz. Individuelle Absprachen liegen im Ermessen des Lehrers. Wird unentschuldigt vom Unterricht ferngeblieben, gibt es definitiv keinen Ersatz, jedoch ein Anruf an die Eltern...</p>
@@ -59,7 +59,7 @@ export default class Fragen_Antworten extends Component {
                     <p>Unsere Mitarbeiter haben in der Regel ein Hochschulstudium im Bereich Musik absolviert, verfügen über Erfahrungen im Unterrichten und/oder sind professionelle Musiker</p>
                 </Collapsible>
 
-                <h3 className="r">Vertraglichkeiten</h3>
+                <h3 className="r" style={{paddingTop: "40px"}}>Vertraglichkeiten</h3>
 
                 <Collapsible trigger={<div className="img_text_hover">Wie und wann kann ich kündigen?</div>}>
                     <p>Die Kündigung muss schriftlich spätestens 6 Wochen vor Ende eines Schulsemesters (Ende März / Ende September) im Sekretariat der Musikschule Hopf eingegangen sein. <br/>Sobald die Kündigung bearbeitet ist, wird eine Bestätigung zugesendet.</p>

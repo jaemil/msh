@@ -17,6 +17,10 @@ import Sarah from "../../../img/Lehrer/12_Sarah_03.jpg"
 import Thomas from "../../../img/Lehrer/13_Thomas_02.jpg"
 import Felix from "../../../img/Lehrer/14_Felix_05.jpg"
 
+
+import { FaFacebook, FaHome } from 'react-icons/fa';
+
+
 export default class Lehrkraefte extends Component {
 
     render() {
@@ -25,82 +29,195 @@ export default class Lehrkraefte extends Component {
             [{
                 src: Josua,
                 thumbnail: Josua,
-                caption: "Josua"
+                vorname: "Josua",
+                nachname: "Lechowski",
+                faecher1: "Schlagzeug",
+                faecher2: "Gitarre", 
+                faecher3: "Cajon"
             },
             {
                 src: Sean,
                 thumbnail: Sean,
-                caption: "Sean"
+                vorname: "Sean",
+                nachname: "Carew",
+                faecher1: "Gitarre"
             },
             {
                 src: Sofia,
                 thumbnail: Sofia,
-                caption: "Sofia"
+                vorname: "Sofia",
+                nachname: "Neroladakis",
+                faecher1: "Gesang",
+                faecher2:"Blockflöte",
+                faecher3:"Querflöte"
             }, 
             {
                 src: Johannes,
                 thumbnail: Johannes,
-                caption: "Johannes"
+                vorname: "Johannes",
+                nachname: "Hopf",
+                faecher1: "Gitarre",
+                faecher2: "Cajon",
+                faecher3: "Darbuka",
+                faecher4: "Klavier",
+                link1: "http://swingology.eu/"
             },
             {
                 src: Davide,
                 thumbnail: Davide,
-                caption: "Davide"
+                vorname: "Davide",
+                nachname: "Petrocca",
+                faecher1: "Gitarre"
             }, 
             {
                 src: Wolle,
                 thumbnail: Wolle,
-                caption: "Wolle"
+                vorname: "Wolfgang",
+                nachname: "Franz",
+                faecher1: "Gitarre",
+                link1: "https://www.franzundmuenster.de/"
             },
             {
                 src: Heike,
                 thumbnail: Heike,
-                caption: "Heike"
+                vorname: "Heike",
+                nachname: "Wagner",
+                faecher1: "Klavier"
             }, 
             {
                 src: Andreas,
                 thumbnail: Andreas,
-                caption: "Andreas"
+                vorname: "Andreas",
+                nachname: "Rieker",
+                faecher1: "Gitarre",
+                link1: "https://mycooperstape.com/",
+                link2: "https://www.splash-band-stuttgart.de/"
             },
             {
                 src: Timo,
                 thumbnail: Timo,
-                caption: "Timo"
+                vorname: "Timo",
+                nachname: "Hopf",
+                faecher1: "Schlagzeug"
             },
             {
                 src: Yvonne,
                 thumbnail: Yvonne,
-                caption: "Yvonne"
+                vorname: "Yvonne",
+                nachname: "Denecke",
+                faecher1: "Frühes Musizieren",
+                faecher2: "Blockflöte"
             },
             {
                 src: Hannes,
                 thumbnail: Hannes,
-                caption: "Hannes"
+                vorname: "Hannes",
+                nachname: "Gottwald",
+                faecher1: "E-Bass",
+                faecher2: "Gitarre",
+                link1: "https://xn--schnbergsounds-xpb.de/",
+                facebook: "https://de-de.facebook.com/swingboheme/"
             }, 
             {
                 src: Sarah,
                 thumbnail: Sarah,
-                caption: "Sarah"
+                vorname: "Sarah",
+                nachname: "Abdallah",
+                faecher1: "Gesang",
+                link1: "https://www.schmid-schneider.de",
+                link2: "https://www.dropzone-band.de"
             },
             {
                 src: Thomas,
                 thumbnail: Thomas,
-                caption: "Thomas"
+                vorname: "Thomas",
+                nachname: "Bender",
+                faecher1: "Klavier"
             }, 
             {
                 src: Felix,
                 thumbnail: Felix,
-                caption: "Felix"
+                vorname: "Felix",
+                nachname: "Berchtold",
+                faecher1: "Gitarre"
             },
         ]
+
+        const vornameStyle = {
+            backgroundColor: "transparent", //border
+            textAlign: "center",
+            fontSize: "25px",
+            width: "100%",
+            color: "white",
+            padding: "60px 5px 0px 5px"
+        };
+
+        var images =
+                IMAGES.map((i) => {
+                    i.customOverlay = (
+                            <div style={vornameStyle}>
+                            <div style={{fontWeight: "bold"}}>{i.vorname}</div>
+                            <div style={{fontWeight: "bold"}}>{i.nachname}</div>
+
+                            <div style ={{textAlign: "center", fontSize: "20px", paddingTop: "20px"}}>
+                            {i.faecher1 != null ? (
+                                <div>{i.faecher1}</div>
+                              ) : (
+                                <a></a>
+                              )}
+
+                              {i.faecher2 != null ? (
+                                <div>{i.faecher2}</div>
+                              ) : (
+                                <a></a>
+                              )}
+
+                              {i.faecher3 != null ? (
+                                <div>{i.faecher3}</div>
+                              ) : (
+                                <a></a>
+                              )}
+
+                              {i.faecher4 != null ? (
+                                <div>{i.faecher4}</div>
+                              ) : (
+                                <a></a>
+                              )}
+                              </div>
+
+                            <div style={{display: "flex", justifyContent: "center", alignItems: "flex-end"}}>
+                            {i.link1 != null ? (
+                                <a href={i.link1} target="_blank" style={{zIndex: "0", pointerEvents: "auto", padding: "5px"}}><FaHome></FaHome></a>
+                              ) : (
+                                <a></a>
+                              )}
+
+                              {i.link2 != null ? (
+                                <a href={i.link2} target="_blank" style={{zIndex: "0", pointerEvents: "auto", padding: "5px"}}><FaHome></FaHome></a>
+                              ) : (
+                                <a></a>
+                              )}
+
+                              {i.facebook != null ? (
+                                <a href={i.facebook} target="_blank" style={{zIndex: "0", pointerEvents: "auto", padding: "5px"}}><FaFacebook></FaFacebook></a>
+                              ) : (
+                                <a></a>
+                              )}
+                              </div>
+                            {i.hasOwnProperty('tags')}
+                        </div>);
+                    return i;
+        });
+
+                
 
         return (
             <div  >
                 
-                    <h2 className = "b">Lehrkräfte</h2>
+                    <h2 className = "b" style ={{paddingLeft: "70px"}}>Musikschul-Team</h2>
                 <div className='gallery' >
                 
-                    <Gallery margin={2}  images={IMAGES} backdropClosesModal={true} showImageCount={false} enableImageSelection={false} thumbnailWidth={250} thumbnailHeight={375} rowHeight={500}/>
+                    <Gallery style={{position: "fixed"}} margin={2}  images={IMAGES} backdropClosesModal={true} showImageCount={false} enableImageSelection={false} thumbnailWidth={200} thumbnailHeight={375} rowHeight={350}/>
                 </div>
             </div>
         )

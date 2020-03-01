@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
-export default class Anmeldung extends Component {
+function Anmeldung(){
 
-    componentDidMount() {
+    function componentDidMount() {
         const script = document.createElement("script");
 
         script.src = "../../../script/script.js";
@@ -19,35 +19,61 @@ export default class Anmeldung extends Component {
         document.body.appendChild(iban_min);
     }
 
+    var [openVollmündig, setOpenVollmündig] = useState(false);
 
-    render() {
+    var [showInfo, setShowInfo] = useState(false);
+
+    function handleChange()
+    {
+        setOpenVollmündig(prevOpen => !prevOpen)
+    }
+
+    function handleChange2()
+    {
+        setShowInfo(prevOpen => !prevOpen)
+    }
+
+
+
         return (
             <div>
-                <h2 className = "r">Anmeldung</h2>
-                Hier kannst du dich für den Unterricht bei der Musikschule Hopf anmelden.
-                Der Prozess ist ganz einfach, er besteht aus 3 Schritten.
-                **1. Online Formular ausfüllen:**
-                Bitte fülle alle markierten Felder aus. Grüne Farbe heißt, dass die Eingabe stimmt!
+
+            <h2 className = "r">Anmeldung</h2>
+            <div id="registration-is-payer" style={{ cursor: 'pointer' }}>
+                    <input style={{color: "white", border: "0", backgroundColor: "black", margin: "10px 10px 10px 20px"}} onClick={handleChange2} type="checkbox" id="registration-data-transfer-checkbox" name="is-payer" /> <div style={{color: "white", display: "inline", textAlign: "left"}}>Infos zur Durchführung der Online-Anmeldung</div>
+                    </div>
+
+            {showInfo ? 
+                (<div>
+                <p>Hier kannst du dich für den Unterricht bei der Musikschule Hopf anmelden.
+                Der Prozess ist ganz einfach, er besteht aus 3 Schritten.</p>
+                <p style={{fontWeight: "bold", paddingTop: "20px"}}>1. Online Formular ausfüllen:</p>
+                <p>Bitte fülle alle markierten Felder aus. Grüne Farbe heißt, dass die Eingabe stimmt!
                 Sobald sich der 'Absenden' - Button aktiviert kannst du das Formular abschicken.
                 Daraufhin bekommst du einen Link zu einer PDF-Datei ([was ist eine
-                PDF-Datei?](https://acrobat.adobe.com/de/de/products/about-adobe-pdf.html)) an deine E-Mail Adresse gesendet.
-                **2. PDF-Datei ausdrucken und unterschreiben:**
-                Während deine Anmeldung direkt hier bei uns ankommt solltest du die Anmeldung ausdrucken und unterschreiben.
+                PDF-Datei?](https://acrobat.adobe.com/de/de/products/about-adobe-pdf.html)) an deine E-Mail Adresse gesendet.</p>
+                <p style={{fontWeight: "bold", paddingTop: "20px"}}>2. PDF-Datei ausdrucken und unterschreiben:</p>
+                <p>Während deine Anmeldung direkt hier bei uns ankommt solltest du die Anmeldung ausdrucken und unterschreiben.
                 Die Anmeldung kannst du uns entweder per E-Mail oder per Post schicken. Natürlich kannst du die Anmeldung auch
-                persönlich in der Musikschule unterschreiben.
-                **3. Lehrer, Tag und Uhrzeit:**
-                Das wichtigste fehlt natürlich noch. An welchem Tag, zu welcher Zeit und bei welchem Lehrer wird dein Unterricht sein?
+                persönlich in der Musikschule unterschreiben.</p>
+                <p style={{fontWeight: "bold", paddingTop: "20px"}}>3. Lehrer, Tag und Uhrzeit:</p>
+                <p>Das wichtigste fehlt natürlich noch. An welchem Tag, zu welcher Zeit und bei welchem Lehrer wird dein Unterricht sein?
                 Dazu werden wir dich per Telefon oder E-Mail kontaktieren. Natürlich bist du auch dabei gerne eingeladen persönlich bei
-                uns vorbei zu kommen.
-                ***Wichtig:** Unterricht beginnt erst nach Eingang der unterschriebenen Anmeldung und der Bestätigung durch das Büro.*
-                **Wenn du fragen hast, dann melde dich doch einfach bei uns, oder komm vorbei!**
+                uns vorbei zu kommen.</p>
+                <p style={{fontWeight: "bold"}}>Wichtig: Unterricht beginnt erst nach Eingang der unterschriebenen Anmeldung und der Bestätigung durch das Büro.</p>
+                <p style={{fontWeight: "bold"}}>Wenn du Fragen hast, dann melde dich doch einfach bei uns, oder komm vorbei!</p>
+
         <hr />
-                **Bitte alle <span style={{ color: 'orange' }}>orange markierten Felder</span> ausfüllen! Auf den "Absenden"-Button kann erst
-                geklickt werden, wenn alle erfolderlichen Felder nach Eingabe der erforderlichen Daten grün sind!**
+        <p style={{fontWeight: "bold"}}>Bitte alle <span style={{ color: 'orange' }}>orange markierten Felder</span> ausfüllen! Auf den "Absenden"-Button kann erst
+                geklickt werden, wenn alle erfolderlichen Felder nach Eingabe der erforderlichen Daten grün sind!</p></div>) : 
+                (<div style={{padding: "30px"}}></div>)}
+                
         <form className="registration" acceptCharset="UTF-8">
             
-                    <h3 className="r">
-                        Schülerdaten:
+                    
+          <div className ="kp">
+          <h3 className="r">
+                        Name des Schülers:
           </h3>
                     <label htmlFor="registration-name">Vorname:</label>
                     <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-name" name="name" placeholder="Vorname" maxLength={25} />
@@ -55,14 +81,30 @@ export default class Anmeldung extends Component {
                     <label htmlFor="registration-surname">Nachname:</label>
                     <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-surname" name="surname" placeholder="Nachname" maxLength={25} />
                     <br />
-                    <label htmlFor="registration-gender">Geschlecht:</label>
-                    <fieldset className="gender-fieldset registration-orange registration-validation-fieldset registration-mandatory">
-                        <input type="radio" id="registration-male" name="registration-gender" defaultValue="m" />
-                        <label htmlFor="registration-male">Männlich</label>
-                        <input type="radio" id="registration-female" name="registration-gender" defaultValue="f" />
-                        <label htmlFor="registration-female">Weiblich</label>
+                    <label htmlFor="birthday">Geburtstdatum:</label>
+                    <input type="text" className="registration-text registration-validation-birthday registration-mandatory hasDatepicker registration-orange" id="registration-birthday" name="birthday" placeholder="Geburtsdatum" maxLength={45} />
+                    <br /></div>
+
+                    <div className ="kp">
+                    <div id="registration-is-payer" style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
+                    <input onClick={handleChange} type="checkbox" id="registration-data-transfer-checkbox" name="is-payer" /> <div style={{color: "white", display: "inline", textAlign: "left", backgroundColor: "black"}}>Schüler noch nicht vollmündig und wohnhaft bei Erziehungsberechtigten (Vater/Mutter/Großeltern ...)</div>
+                    </div>
+
+                    {openVollmündig ? (<div style = {{backgroundColor: "black"}}>
+                        <h3 className ="r">Name des Erziehungsberechtigten</h3>
+                        <label htmlFor="registration-name">Vorname:</label>
+                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-name" name="name" placeholder="Vorname" maxLength={25} />
                         <br />
-                    </fieldset>
+                        <label htmlFor="registration-surname">Nachname:</label>
+                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-surname" name="surname" placeholder="Nachname" maxLength={25} />
+                        <br />
+                    </div>) : ( <div></div> )}</div>
+                    
+                    <div className ="kp">
+                    <h3 className="r">
+                        Wohnort des Schülers:
+          </h3>
+
                     <label htmlFor="street">Straße Hausnummer:</label>
                     <input type="text" className="registration-text registration-validation-has-number registration-mandatory registration-orange" id="registration-street" name="street" placeholder="Straße Hausnummer" maxLength={45} />
                     <br />
@@ -71,22 +113,39 @@ export default class Anmeldung extends Component {
                     <br />
                     <label htmlFor="registration-city">Ort:</label>
                     <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-city" name="city" placeholder="Ort" maxLength={45} />
-                    <br />
-                    <label htmlFor="registration-phone">Telefon:</label>
+                    <br /></div>
+
+                    <div className = "kp">
+                    <h3 className="r">
+                    Kontaktdaten <a style={{fontSize: "20px"}}>(vollmündiger Schüler/Erziehungsberechtigter)</a>:
+      </h3>
+
+                    <label htmlFor="registration-phone">Telefon privat:</label>
                     <input type="tel" className="registration-text registration-validation-phone registration-mandatory registration-orange" id="registration-phone" name="phone" placeholder="Telefon" maxLength={30} />
                     <br />
-                    <label htmlFor="registration-mobile">Mobil:</label>
+                    <label htmlFor="registration-mobile">Mobil privat:</label>
                     <input type="tel" className="registration-text registration-validation-phone" id="registration-mobile" name="mobile" placeholder="Mobil" maxLength={30} />
                     <br />
                     <label htmlFor="registration-email">E-Mail:</label>
                     <input type="email" className="registration-text registration-validation-email registration-mandatory registration-orange" id="registration-email" name="email" placeholder="E-Mail" maxLength={45} />
-                    <br />
-                    <label htmlFor="registration-family">Weitere Familienmitglieder in der Musikschule:</label>
-                    <input type="text" className="registration-text" id="registration-family" name="family" placeholder="Familienmitglieder" />
-                    <br />
-                    <label htmlFor="birthday">Geburtstdatum:</label>
-                    <input type="text" className="registration-text registration-validation-birthday registration-mandatory hasDatepicker registration-orange" id="registration-birthday" name="birthday" placeholder="Geburtsdatum" maxLength={45} />
-                    <br />
+                    <br /></div>
+
+                    <div className ="kp">
+                    <div id="registration-is-payer" style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
+                    <input onClick={handleChange} type="checkbox" id="registration-data-transfer-checkbox" name="is-payer" /> <div style={{color: "white", display: "inline", textAlign: "left", backgroundColor: "black"}}>Weitere aktive Familienmitglieder in der Musikschule:</div>
+                    </div>
+                    {openVollmündig ? (<div style = {{backgroundColor: "black"}}>
+                        <label htmlFor="registration-name">1. Nachname, Vorname:</label>
+                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-name" name="name" placeholder="Nachname, Vorname:" maxLength={25} />
+                        <br />
+                        <label htmlFor="registration-surname">2. Nachname, Vorname:</label>
+                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-surname" name="surname" placeholder="Nachname, Vorname:" maxLength={25} />
+                        <br />
+                        <label htmlFor="registration-surname">3. Nachname, Vorname:</label>
+                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-surname" name="surname" placeholder="Nachname, Vorname:" maxLength={25} />
+                        <br />
+                    </div>) : ( <div></div> )}</div>
+
                     <div id="registration-needs-parent" style={{ display: 'none' }}>
                         <h3>
                             Erziehungsberechtigter
@@ -111,86 +170,109 @@ export default class Anmeldung extends Component {
                         <br />
                     </div>
                     <hr />
+                    <div className ="kp">
+
+                    <div style ={{paddingTop: "10px", backgroundColor: "black"}}>
                     <h3 className="r">
                         Unterrichtsdaten:
           </h3>
-                    <i>Bitte alles ausfüllen.</i>
                     <br />
-                    <label htmlFor="registration-lecture">Instrument:</label>
-                    <select id="registration-lecture" className="registration-orange" name="lecture" size={1}>
-                        <option>
+                    <label htmlFor="registration-lecture">Unterrichtsfach:</label>
+                    <select style={{backgroundColor: "white", width: "200px"}} id="registration-lecture" placeholder="Bitte auswählen" className="registration-orange" name="lecture" size={1}>
+                    <option style = {{backgroundColor: "white",color: "black"}}>
+                            Bitte auswählen
+            </option>    
+                    <option style = {{backgroundColor: "white",color: "black"}}>
                             Gitarre
             </option>
-                        <option>
-                            Bass
+            <option style = {{backgroundColor: "white",color: "black"}}>
+                            E-Gitarre
             </option>
-                        <option>
+                        <option style = {{backgroundColor: "white",color: "black"}}>
+                            E-Bass
+            </option>
+                        <option style = {{backgroundColor: "white",color: "black"}}>
                             Gesang
             </option>
-                        <option>
+                        <option style = {{backgroundColor: "white",color: "black"}}>
                             Klavier
             </option>
-                        <option>
+                        <option style = {{backgroundColor: "white",color: "black"}}>
                             Schlagzeug
             </option>
-                        <option>
+            <option style = {{backgroundColor: "white",color: "black"}}>
+                            Cajon
+            </option>
+            <option style = {{backgroundColor: "white",color: "black"}}>
+                            Darbuka
+            </option>
+                        <option style = {{backgroundColor: "white",color: "black"}}>
                             Blockflöte
             </option>
-                        <option>
-                            Saxofon
-            </option>
-                        <option>
+                        <option style = {{backgroundColor: "white",color: "black"}}>
                             Querflöte
             </option>
-                        <option>
+                        <option style = {{backgroundColor: "white",color: "black"}}>
                             Frühes Musizieren
             </option>
-                    </select>
+                    </select></div>
                     <br />
-                    <label htmlFor="registration-dauer">Dauer:</label>
-                    <div id="registration-dauer" className="registration-button-selector registration-orange">
-                        <div id="registration-dauer-30" className="registration-button-selector-left">
-                            30 min.
-            </div>
-                        <div id="registration-dauer-45" className="registration-button-selector-disabled registration-button-selector-middle">
-                            45 min.
-            </div>
-                        <div id="registration-dauer-60" className="registration-button-selector-disabled registration-button-selector-middle">
-                            60 min.
-            </div>
-                        <div id="registration-dauer-custom" className="registration-button-selector-disabled registration-button-selector-right">
-                            <input type="text" disabled="true" placeholder="sonstige" maxLength={12} />
-                        </div>
-                    </div>
-                    <input className="registration-hidden" id="registration-length" type="text" name="length" />
+                    <div style ={{paddingTop: "10px", backgroundColor: "black"}}>
+                    <label htmlFor="registration-dauer">Unterrichsdauer:</label><select style={{backgroundColor: "white", width: "200px"}} id="registration-lecture" placeholder="Bitte auswählen" className="registration-orange" name="lecture" size={1}>
+                    <option style = {{backgroundColor: "white",color: "black"}}>
+                            Bitte auswählen
+            </option>    
+                    <option style = {{backgroundColor: "white",color: "black"}}>
+                            30 Min.
+            </option>
+            <option style = {{backgroundColor: "white",color: "black"}}>
+                            45 Min.
+            </option>
+                        <option style = {{backgroundColor: "white",color: "black"}}>
+                            60 Min.
+            </option>
+
+                    </select></div>
                     <br />
-                    <label htmlFor="registration-turnus">Turnus:</label>
-                    <div id="registration-turnus" className="registration-button-selector registration-orange">
-                        <div id="registration-turnus-weekly" className="registration-button-selector-left">
+                    <div style ={{paddingTop: "10px", backgroundColor: "black"}}>
+                    <label htmlFor="registration-dauer">Unterrichtsturnus:</label><select style={{backgroundColor: "white", width: "200px"}} id="registration-lecture" placeholder="Bitte auswählen" className="registration-orange" name="lecture" size={1}>
+                    <option style = {{backgroundColor: "white",color: "black"}}>
+                            Bitte auswählen
+            </option>    
+                    <option style = {{backgroundColor: "white",color: "black"}}>
                             Wöchentlich
-            </div>
-                        <div id="registration-turnus-weekly" className="registration-button-selector-disabled registration-button-selector-middle">
+            </option>
+            <option style = {{backgroundColor: "white",color: "black"}}>
                             14 tägig
-            </div>
-                        <div id="registration-turnus-custom" className="registration-button-selector-disabled registration-button-selector-right">
-                            <input type="text" disabled="true" placeholder="sonstige" maxLength={12} />
-                        </div>
+            </option>
+            <option style = {{backgroundColor: "white",color: "black"}}>
+                            Zehnerkarte
+            </option>
+                        
+
+                    </select></div>
+                    
+                    <div style ={{paddingTop: "10px", paddingBottom: "10px", backgroundColor: "black"}}>
+                    <br />  
+
+                    <label htmlFor="registration-dauer">Unterrichtseinheit:</label><select style={{backgroundColor: "white", width: "200px"}} id="registration-lecture" placeholder="Bitte auswählen" className="registration-orange" name="lecture" size={1}>
+                    <option style = {{backgroundColor: "white",color: "black"}}>
+                            Bitte auswählen
+            </option>    
+                    <option style = {{backgroundColor: "white",color: "black"}}>
+                    Einzel
+            </option>
+            <option style = {{backgroundColor: "white",color: "black"}}>
+            Zweier
+            </option>
+            <option style = {{backgroundColor: "white",color: "black"}}>
+            Gruppe (ab 3)
+            </option>
+                        
+
+                    </select></div>
+
                     </div>
-                    <input className="registration-hidden" id="registration-turnus" type="text" name="turnus" />
-                    <br />
-                    <label htmlFor="registration-unit">Einheit:</label>
-                    <div id="registration-unit" className="registration-button-selector registration-orange">
-                        <div id="registration-unit-einzel" className="registration-button-selector-left">
-                            Einzel
-            </div>
-                        <div id="registration-unit-zweier" className="registration-button-selector-disabled registration-button-selector-middle">
-                            Zweier
-            </div>
-                        <div id="registration-unit-gruppe" className="registration-button-selector-disabled registration-button-selector-right">
-                            Gruppe (ab 3)
-            </div>
-                    </div>
-                    <input className="registration-hidden" id="registration-unit" type="text" name="unit" maxLength={12} />
                     <br />
                     <hr />
                     <h3 className="r">
@@ -241,4 +323,6 @@ export default class Anmeldung extends Component {
       </div>
         )
     }
-}
+
+
+export default Anmeldung

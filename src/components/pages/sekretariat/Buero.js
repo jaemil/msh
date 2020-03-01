@@ -25,68 +25,59 @@ export default class Buero extends Component {
 
         return (
             <div>
+
+            <Table>
+            
+            </Table>
                 <h2 className="r">Büro</h2>
                 <br />
-
-                <Table dark borderless style={{ width: "50%" }}>
-                    <tbody>
-                        <tr>
-                            <td><Table borderless dark style={{ width: "100%", marginLeft: "90px" }}>
+                <div className="kp" style ={{overflow: "auto"}}>
+                <img style ={{float: "left", width: "30%", display: "inline", paddingLeft: "20px", paddingRight: "40px", backgroundColor: "black"}} src = {Biggi}></img>
+                <Table borderless dark style={{ width: "70%", paddingLeft: "120px"}}>
                                 <tbody>
-                                    <tr style={{ height: "50px" }}>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
                                     <tr>
-                                        <td>Sekretärin:</td>
+                                        <td className="r" style={{fontWeight: "bold"}}>Sekretärin:</td>
                                         <td>Birgit Ollhäuser</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td>Ist für euch da, wenn es um Bürokratie (Formelles, Finanzen, Einzüge etc.)<br />oder um Informationen rund um die Musikschule geht.</td>
+                                        <td>Ist für euch da, wenn es um Bürokratie <br />(Formelles, Finanzen, Einzüge etc.)<br />oder um Informationen rund um die Musikschule geht.</td>
                                     </tr>
                                     <tr>
-                                        <td>Bürozeiten:</td>
+                                        <td className="r" style={{fontWeight: "bold"}}>Bürozeiten:</td>
                                         <td>Montag und Dienstag <br />9.00 Uhr - 15.00 Uhr. <br />In den Schulferien ist das Büro nur gelegentlich geöffnet. </td>
                                     </tr>
                                     <tr>
-                                        <td>Telefon:</td>
+                                        <td className="r" style={{fontWeight: "bold"}}>Telefon:</td>
                                         <td>07021 – 482 797</td>
                                     </tr>
                                     <tr>
-                                        <td>E-Mail:</td>
+                                        <td className="r" style={{fontWeight: "bold"}}>E-Mail:</td>
                                         <td>info@musikschule-hopf.de</td>
                                     </tr>
-                                    <tr style = {{height: "200px"}}>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                </tbody>
+                            </Table></div>
+
+                            <div className = "kp" style= {{marginTop: "20px", overflow: "auto"}}>
+                <img style ={{float: "right", width: "30%", display: "inline", paddingLeft: "20px", paddingRight: "0px", backgroundColor: "black"}} src = {Johannes}></img>
+                            
+
+                            <Table borderless dark style={{ width: "70%", paddingLeft: "120px" }}>
+                                <tbody>
                                     <tr>
-                                        <td>Geschäftsführer:</td>
+                                        <td className="r" style={{fontWeight: "bold"}}>Geschäftsführer:</td>
                                         <td>Johannes Hopf</td>
                                     </tr>
                                     <tr>
-                                        <td>Bürozeiten:</td>
+                                        <td className="r" style={{fontWeight: "bold"}}>Bürozeiten:</td>
                                         <td>Montag bis Donnerstag<br />Vormittags spontan oder nach Absprache.<br />Schnelle Kommunikation per Mail!!!</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td>Ist für euch da, wenn es um Informationen zum Unterricht (Lehrkräfte/Lehrkonzepte), <br />Geschäftspartner-/ Patenschaften etc.<br /> und allgemeines über die Musikschule geht.</td>
-                                    </tr>
-
-                                </tbody>
-                            </Table></td>
-                            <td><Table dark style={{ width: "100%", marginLeft: "90px", marginTop: "-30px" }}>
-                                <tbody>
-                                    <tr>
-                                        <Gallery  images={IMAGES} backdropClosesModal={true} showImageCount={false} enableImageSelection={false} thumbnailWidth={250} thumbnailHeight={375} rowHeight={500} />
+                                        <td>Ist für euch da, wenn es um Informationen zum Unterricht <br />(Lehrkräfte/Lehrkonzepte), <br />Geschäftspartner-/ Patenschaften etc.<br /> und allgemeines über die Musikschule geht.</td>
                                     </tr>
                                 </tbody>
-                            </Table></td>
-                        </tr>
-                    </tbody>
-                </Table>
-                
+                            </Table></div>
                 
 
                 

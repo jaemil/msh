@@ -26,6 +26,7 @@ import Fragen_Antworten from './components/pages/sekretariat/Fragen_Antworten'
 import Gebuehren from './components/pages/sekretariat/Gebuehren' 
 import Schulordung from './components/pages/sekretariat/Schulordnung' 
 import Ummeldung from './components/pages/sekretariat/Ummeldung'
+import Impressum from "./components/pages/sekretariat/Impressum"
 
 
 class App extends React.Component 
@@ -35,12 +36,13 @@ class App extends React.Component
       <div className="App">
         <Navbar className="shadow"/>
 
-        <div className="Main">
+        <div className="Main" >
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/impressum" component={Impressum} />
           <Route path="/kontakt" component={Kontakt} />
           <Route path="/partner" component={Partner} />
-          <Route path="/lehrkraefte" component={Lehrkraefte} />
+          <Route path="/musikschul_Team" component={Lehrkraefte} />
           <Route path="/unterrichtsorte" component={Unterrichtsorte} />
           <Route path="/ueber_uns" component={Ueber_Uns} />
           <Route path="/unterrichtsfaecher" component={Unterrichtsfaecher} />
@@ -56,7 +58,7 @@ class App extends React.Component
           </Switch>
         </div>
 
-        
+        <Footer></Footer>
       </div>
     )
   }

@@ -7,8 +7,9 @@ export default class Ummeldung extends Component {
             <div>
                 <h2 className="r">Ummeldung</h2>
                 <br />
-                <p style={{textAlign: "center"}}>Für die Ummeldung einfach die beiligende PDF Datei ausfüllen und einfach per Email, Post oder persönlich vorbei bringen.</p>
-                <p style={{ textAlign: "center" }}><a href={Pdf} target="_blank">Ummeldeformular</a></p>
+                <div className = "kp">
+                <p >Für die Ummeldung einfach die beiligende PDF Datei ausfüllen und einfach per Email, Post oder persönlich vorbei bringen.</p>
+                <p ><a href={Pdf} target="_blank">Ummeldeformular</a></p></div>
             </div>
         )
     }

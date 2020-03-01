@@ -11,7 +11,7 @@
 
 h2/*Ueberschrift*/
 {
-    text-align: center;
+    text-align: left;
     font-family: 'Hwyl fawr Hello';
     font-size: 40px!important;
     padding: 20px 20px 20px 20px;
@@ -21,10 +21,10 @@ h2/*Ueberschrift*/
 
 h3/*unter Ueberschrift*/
 {
-    text-align: center;
+    text-align: left;
     font-size: 25px!important;
     font-weight: bold!important;
-    padding: 60px 20px 25px 20px;
+    padding: 10px 20px 10px 20px;
     color: white;
     box-shadow: 0 20px 0px -20px rgb(0, 0, 0);
     background-color: transparent;
@@ -34,17 +34,19 @@ p
 {
   color: white!important;
   background-color: transparent;
+  padding: 0px 20px 0px 20px;
 }
 
 .nav
 {
-    left: 0;
-    margin: auto;
+    left: 19.7%;
+    height: 120px;
     position: sticky;
     top: 0;
     box-shadow: white;
-	box-shadow: 0 20px 20px -20px rgb(0, 0, 0);
+	box-shadow: 0 20px 20px -15px rgb(0, 0, 0);
     z-index: 100;
+    background-color: rgb(30, 30, 30);
 }
 
 .textCenter
@@ -69,7 +71,7 @@ p
 
 .nav ul li ul li a.o
 {
-    color: #EB7E35;
+    color: #E9B041;
 }
 
 
@@ -93,7 +95,7 @@ p
 
 .nav ul li ul li a.o:hover
 {
-    background: #EB7E35;
+    background: #E9B041;
     color: rgb(0, 0, 0);
 }
 
@@ -115,7 +117,7 @@ p
 
 .o
 {
-    color: #EB7E35;
+    color: #E9B041;
 }
 
 .textLeft
@@ -302,22 +304,6 @@ body::-webkit-scrollbar-thumb {
 
 /*Page: Fragen Antworten*/
 
-
-.UnterrichtsfächerText
-{
-    display: inline-block;
-    font-weight: bold;
-    font-Size: 20px;    
-    margin: 0px 0% 0px 15%;
-    background-color: transparent; 
-}
-
-.UnterrichtsfächerImg
-{
-    margin: 20px 0% 20px 20%; 
-    background-Color: transparent;
-}
-
 }
 
 
@@ -330,12 +316,14 @@ body::-webkit-scrollbar-thumb {
         font-size: 33px!important;
         font-weight: bold!important;
         padding: 3px 10px 3px 10px;
+        background-color: rgb(30, 30, 30);
     }
 
     .Main
     {
         padding: 2% 20% 0% 20%;
         z-index: -100;
+       
     }
 
     .gallery 
@@ -371,6 +359,7 @@ body::-webkit-scrollbar-thumb {
         text-align: center;
         padding: 0;
         margin: 0;
+        background-color: rgb(30, 30, 30);
         /*background-color: rgb(0, 0, 0);nav Banner Farbe*/
     }
 
@@ -387,6 +376,7 @@ body::-webkit-scrollbar-thumb {
         padding: 0;
         margin: 0;
         position: relative;
+        background-color: rgb(30, 30, 30);
     }
 
     .nav ul li a
@@ -442,14 +432,14 @@ body::-webkit-scrollbar-thumb {
 .Collapsible
 {
     margin: 10px 10px 10px 10px;
-    background-color:rgb(25, 25, 25);
+    background-color:rgb(35, 35, 35);
     border-radius: 20px 20px 20px 20px;
     
 }
 
 .Collapsible:hover
 {
-     background-color:rgb(25, 25, 25);
+     background-color:rgb(35, 35, 35);
 }
 
 .Collapsible__trigger
@@ -473,38 +463,25 @@ body::-webkit-scrollbar-thumb {
     font-weight: lighter;
     text-align: left;
     color: white;
-    background-color:rgb(25, 25, 25);
+    background-color:rgb(35, 35, 35);
     padding: 10px 20px 10px 20px;
     border-radius: 0px 0px 20px 20px
 }
 
 .img_text_hover
 {
-    background-color:rgb(15, 15, 15);
+    background-color:rgb(0, 0, 0);
     border-radius: 20px;
     padding: 10px;
 }
 
 .img_text_hover:hover
 {
-    background-color:rgb(25, 25, 25);
+    background-color:rgb(35, 35, 35);
 }
 /*Page: Fragen Antworten*/
 
-.UnterrichtsfächerText
-{
-    display: inline-block;
-    font-weight: bold;
-    font-Size: 25px;    
-    margin: 0px 0% 0px 15%;
-    background-color: transparent; 
-}
 
-.UnterrichtsfächerImg
-{
-    margin: 20px 0% 20px 30%; 
-    background-Color: transparent;
-}
 
     @keyframes slideIn
     {
@@ -557,6 +534,7 @@ label
 {
     width: 30%;
     color: white;
+    background-color: black;
 }
 
 .registration-text
@@ -569,6 +547,8 @@ label
     border-radius: 10px;
 }
 
+
+
 .registration
 {
     
@@ -576,7 +556,42 @@ label
 
 .kp
 {
-    background-color: rgb(15, 15, 15)!important;
-    padding: 20px;
+    background-color: rgb(0, 0, 0)!important;
+    padding: 20px 20px 10px 20px;
     border-radius: 20px;
+    margin-top: 20px;
 }
+
+
+.BueroText
+{
+
+    display: inline-block;
+    font-weight: bold;
+    font-Size: 25px;    
+    background-color: transparent; 
+}
+
+.UnterrichtsfächerImg
+{
+    width: 15%;
+    margin: 1%;
+    padding: 1%;
+    background-Color: black; 
+    border-Radius: 20px;
+}
+
+.UnterrichtsfächerImgSelected
+{
+    width: 15%;
+    margin: 1%;
+    padding: 1%;
+    background-color:rgb(35, 35, 35);
+    border-Radius: 20px;
+}
+
+.UnterrichtsfächerImg:hover
+{
+    background-color:rgb(35, 35, 35);
+}
+
