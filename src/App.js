@@ -34,7 +34,7 @@ class App extends React.Component
   render() {
     return (
       <div className="App">
-        <Navbar className="shadow"/>
+        <Navbar />
 
         <div className="Main" >
         <Switch>

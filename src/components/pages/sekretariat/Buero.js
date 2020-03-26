@@ -31,7 +31,7 @@ export default class Buero extends Component {
             </Table>
                 <h2 className="r">Büro</h2>
                 <br />
-                <div className="kp" style ={{overflow: "auto"}}>
+                <div className="blackContainer" style ={{overflow: "auto"}}>
                 <img style ={{float: "left", width: "30%", display: "inline", paddingLeft: "20px", paddingRight: "40px", backgroundColor: "black"}} src = {Biggi}></img>
                 <Table borderless dark style={{ width: "70%", paddingLeft: "120px"}}>
                                 <tbody>
@@ -58,7 +58,7 @@ export default class Buero extends Component {
                                 </tbody>
                             </Table></div>
 
-                            <div className = "kp" style= {{marginTop: "20px", overflow: "auto"}}>
+                <div className= "blackContainer" style= {{marginTop: "20px", overflow: "auto"}}>
                 <img style ={{float: "right", width: "30%", display: "inline", paddingLeft: "20px", paddingRight: "0px", backgroundColor: "black"}} src = {Johannes}></img>
                             
 

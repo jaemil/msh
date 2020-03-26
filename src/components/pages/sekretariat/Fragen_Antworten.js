@@ -11,15 +11,13 @@ export default class Fragen_Antworten extends Component {
         return (
             <div>
                 <h2 className="r">Frage-Antwort</h2>
-<br/>
-                <div className ="kp"><p>Vielleicht können euch hier schon eure Anliegen beantwortet werden.</p></div>
 
                 <h3 className="r" style={{paddingTop: "40px"}}>Schnupperstunden</h3>
 
-                <Collapsible trigger={<div className="img_text_hover" style ={{padding: "10px"}}>Wie funktionieren die zwei Schnuppermonate?</div>} open = "true">
+                <Collapsible trigger={<div className="img_text_hover" style={{ padding: "10px"}}>Wie funktionieren die zwei Schnuppermonate?</div>}>
                     <p>Das Angebot der zwei Schnuppermonate hat jeder Schüler, der hier in unsere Musikschule kommt (ausgenommen Teilnehmer von Workshops, Kursen, 10er Karten, Frühes Musizieren). Hierzu brauchen wir als allererstes eine vollständig ausgefüllte, unterschriebene Anmeldung. Danach gibt es eine Eingangsbestätigung von Seiten der Musikschule und dann wird dem Schüler ein Lehrer zugeordnet.</p>
                     <p>Die zwei gebührenpflichtige Schnuppermonate dienen dann dazu, sich mit dem Instrument, dem Lehrer und den musikalischen Aufgaben vertraut zu machen. Auch der Lehrer braucht manchmal diese Zeit, um ein individuelles Lehrkonzept für den Schüler vorzubereiten.</p>
-                    <p>Gefällt es dem Schüler nicht, kann außerordentlich auf Ende der zwei Schnuppermonate gekündigt werden. 										                     Läuft alles nach Wunsch ab, wird der Vertrag automatisch verlängert <br /> und kann nur auf Ende März und/oder Ende September gekündigt werden.</p>
+                    <p>Gefällt es dem Schüler nicht, kann außerordentlich auf Ende der zwei Schnuppermonate gekündigt werden. 										                     Läuft alles nach Wunsch ab, wird der Vertrag automatisch verlängert und kann nur auf Ende März und/oder Ende September gekündigt werden.</p>
                 </Collapsible>
         <Collapsible trigger={<div className="img_text_hover" style={{ padding: "10px" }}>Warum kann man nicht eine einzelne Schnupperstunde nehmen?</div>}>
                     <p>Weil uns unsere Erfahrung gelehrt hat, dass man innerhalb einer kurzen Zeit niemanden gerecht werden kann. Im Gitarrenunterricht z.B. lernt man in der ersten Stunde nur die richtige Sitz- / und Handhaltung. Auch zwischenmenschlich braucht es manchmal etwas Zeit... </p>

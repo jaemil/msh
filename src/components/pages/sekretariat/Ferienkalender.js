@@ -8,8 +8,8 @@ export default class Ferienkalender extends Component {
         return (
             <div>
                 <h2 className="r">Ferienkalender</h2><br/>
-                <div className="kp"><p>Unser Ferienkalender richtet sich nach den öffentlichen Schulen in Kirchheim.</p></div>
-                <div className ="kp" style ={{margin: "80px"}}>
+                <div className="blackContainer"><p>Unser Ferienkalender richtet sich nach den öffentlichen Schulen in Kirchheim.</p></div>
+                <div className="blackContainer" style ={{margin: "80px"}}>
                 <img width="100%" src={Pdf} />
             </div>
                 

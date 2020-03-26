@@ -1,0 +1,325 @@
+
+@media only screen and (max-width: 991px)/*Mobile Ansicht*/
+{
+.logo
+{
+    display: none;
+}
+}
+
+@media only screen and (min-width: 992px)/*destop*/
+{
+.logo
+{
+    width: 400px; 
+    padding: 50px 0px 20px 0px;
+    background-Color: transparent;
+    background-color: rgb(30, 30, 30);
+    height: auto;
+
+    
+    transform: translateX(-20rem);
+    animation: slideIn .7s forwards;
+    position: relative;
+}
+}
+
+.nav
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    left: 19.7%;
+    position: sticky;
+    top: 0;
+    box-shadow: white;
+	box-shadow: 0 20px 20px -15px rgb(0, 0, 0);
+    z-index: 100;
+    background-color: rgb(30, 30, 30);
+}
+
+h1/*nav*/
+{
+    font-family: 'Hwyl fawr Hello';
+    font-size: 33px!important;
+    font-weight: bold!important;
+    padding: 3px 10px 3px 10px;
+    background-color: rgb(30, 30, 30);
+}
+
+font
+{
+    background-color: transparent;
+}
+
+
+.innerNav
+{
+    width: 60%;
+    
+    display: flex;
+    justify-content: flex-end;
+
+    background-Color: rgb(30, 30, 30);
+
+    transform: translateY(-20rem);
+    animation: slideIn .7s forwards;
+    padding-top: 60px;
+    margin-right: -20px;
+}
+
+
+
+.nav ul
+{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(30, 30, 30);
+    z-index: 1000;
+}
+
+.nav li
+{
+    display: inline-block;
+
+}
+
+.nav ul li
+{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    background-color: rgb(30, 30, 30);
+    
+}
+
+.nav ul li a
+{
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0);
+    font-size: 25px;
+    padding: 3px 10px 0px 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.nav ul li ul
+{
+    display: none;
+    position: absolute;
+    /*background-color:rgb(10,10,10);*/
+    padding: 10px;
+    border-radius: 0px 0px 16px 16px;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,1);
+    
+}
+
+.nav ul li:hover ul
+{
+    display: block;
+}
+
+.nav ul li ul li
+{
+    width: 140px;
+    border-radius: 4px;
+    
+}
+
+.nav ul li.o ul li
+{
+    width: 240px;
+    border-radius: 4px;
+}
+
+.nav ul li ul li a
+{
+    padding: 3px 1px;
+    font-size: 22px;
+    transform: translateY(-1.0rem);
+    animation: slideInDown .35s forwards;
+    font-family: 'Hwyl fawr Hello';
+    border-radius: 16px;
+}
+
+.textCenter
+{
+    text-align: center;
+}
+
+.nav ul li ul li a.r
+{
+    color: #E85648;
+}
+
+.nav ul li ul li a.b
+{
+    color: #52adbb
+}
+
+.nav ul li ul li a.g
+{
+    color: #52adbb
+}
+
+.nav ul li ul li a.o
+{
+    color: #E9B041;
+}
+
+
+.nav ul li ul li a.r:hover
+{
+    background: #E85648;
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li ul li a.b:hover
+{
+    background: #52adbb;
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li ul li a.g:hover
+{
+    background:  #3dc097;
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li ul li a.o:hover
+{
+    background: #E9B041;
+    color: rgb(0, 0, 0);
+}
+
+
+.nav ul li h1.g:hover
+{
+    background-color:  #3dc097;
+    color: rgb(0, 0, 0);
+    border-radius: 16px;
+    width: 100%;
+}
+
+.nav ul li h1.g:hover font
+{
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li h1.b:hover
+{
+    background-color: #52adbb;
+    color: rgb(0, 0, 0);
+    border-radius: 16px;
+    width: 100%;
+}
+
+.nav ul li h1.b:hover font
+{
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li h1.r:hover
+{
+    background-color:  #E85648;
+    color: rgb(0, 0, 0);
+    border-radius: 16px;
+    width: 100%;
+}
+
+.nav ul li h1.r:hover font
+{
+    color: rgb(0, 0, 0);
+}
+
+.nav ul li h1.o:hover
+{
+    background-color:  #E9B041;
+    color: rgb(0, 0, 0);
+    border-radius: 16px;
+    width: 100%;
+}
+
+.nav ul li h1.o:hover font
+{
+    color: rgb(0, 0, 0);
+}
+
+.r
+{
+    color: #E85648;
+}
+
+.b
+{
+    color: #52adbb
+}
+
+.g
+{
+    color: #52adbb
+}
+
+.o
+{
+    color: #E9B041;
+}
+
+.textLeft
+{
+    color: white;
+
+}
+
+.logoAnimation
+{
+    background-color: transparent;
+}
+
+.noteAnimation
+{
+    width: 20px;
+    background-color: transparent;
+    position: absolute;
+    height: auto;
+    transform: translate(-1500%, 120%);
+    z-index: 1000;
+    offset-path: path('M -10 -20 L 100 -35');
+    animation: move 2s linear infinite;
+}
+
+@keyframes move {
+    
+    100% { 
+    motion-offset: 100%;   /* Old */
+    offset-distance: 100%; /* New */
+    opacity: 0%;
+  }
+}
+
+@keyframes slideIn
+    {
+        from
+        {
+
+        }to
+        {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInDown
+    {
+        from
+        {
+        }
+        to
+        {
+            transform: translateY(0);
+        }
+    }

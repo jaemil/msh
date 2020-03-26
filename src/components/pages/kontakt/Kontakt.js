@@ -9,7 +9,7 @@ export default class Kontakt extends Component {
             <div>
 
             <h2 className = "o">Kontakt</h2>
-            <div className ="kp" style={{marginBottom: "20px", marginBottom: "20px"}}>
+                <div className="blackContainer" style={{marginBottom: "20px", marginBottom: "20px"}}>
         
                 <Table dark>
                     <thead>

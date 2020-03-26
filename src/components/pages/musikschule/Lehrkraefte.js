@@ -4,7 +4,7 @@ import Gallery from 'react-grid-gallery';
 import Josua from "../../../img/Lehrer/0_Josua_06.jpg"
 import Sean from "../../../img/Lehrer/1_Sean_06.jpg"
 import Sofia from "../../../img/Lehrer/2_Sofia_04.jpg"
-import Johannes from "../../../img/Lehrer/3_Johannes_05.jpg"
+import Johannes from "../../../img/Lehrer/Johannes_11.jpg"
 import Davide from "../../../img/Lehrer/4_Davide_06.jpg"
 import Wolle from "../../../img/Lehrer/5_Wolle_04.jpg"
 import Heike from "../../../img/Lehrer/6_Heike_02.jpg"
@@ -18,7 +18,7 @@ import Thomas from "../../../img/Lehrer/13_Thomas_02.jpg"
 import Felix from "../../../img/Lehrer/14_Felix_05.jpg"
 
 
-import { FaFacebook, FaHome } from 'react-icons/fa';
+import { FaInstagram, FaHome } from 'react-icons/fa';
 
 
 export default class Lehrkraefte extends Component {
@@ -67,7 +67,9 @@ export default class Lehrkraefte extends Component {
                 thumbnail: Davide,
                 vorname: "Davide",
                 nachname: "Petrocca",
-                faecher1: "Gitarre"
+                faecher1: "Gitarre",
+                link1: "https://www.reverbnation.com/davidepetrocca",
+                link2: "https://www.youtube.com/user/galileojazz"
             }, 
             {
                 src: Wolle,
@@ -75,7 +77,9 @@ export default class Lehrkraefte extends Component {
                 vorname: "Wolfgang",
                 nachname: "Franz",
                 faecher1: "Gitarre",
-                link1: "https://www.franzundmuenster.de/"
+                link1: "https://www.franzundmuenster.de/",
+                link2: "https://benjamingulz.wixsite.com/niftymusic",
+                link3: "https://www.eventpeppers.com/de/zweiundklang"
             },
             {
                 src: Heike,
@@ -106,7 +110,8 @@ export default class Lehrkraefte extends Component {
                 vorname: "Yvonne",
                 nachname: "Denecke",
                 faecher1: "Frühes Musizieren",
-                faecher2: "Blockflöte"
+                faecher2: "Blockflöte",
+                faecher3: "Klavier"
             },
             {
                 src: Hannes,
@@ -116,7 +121,7 @@ export default class Lehrkraefte extends Component {
                 faecher1: "E-Bass",
                 faecher2: "Gitarre",
                 link1: "https://xn--schnbergsounds-xpb.de/",
-                facebook: "https://de-de.facebook.com/swingboheme/"
+                instagram: "https://www.instagram.com/hannesgottwald/"
             }, 
             {
                 src: Sarah,
@@ -198,8 +203,14 @@ export default class Lehrkraefte extends Component {
                                 <a></a>
                               )}
 
-                              {i.facebook != null ? (
-                                <a href={i.facebook} target="_blank" style={{zIndex: "0", pointerEvents: "auto", padding: "5px"}}><FaFacebook></FaFacebook></a>
+                            {i.link3 != null ? (
+                              <a href={i.link3} target="_blank" style={{ zIndex: "0", pointerEvents: "auto", padding: "5px" }}><FaHome></FaHome></a>
+                            ) : (
+                                <a></a>
+                              )}
+
+                              {i.instagram != null ? (
+                            <a href={i.instagram} target="_blank" style={{ zIndex: "0", pointerEvents: "auto", padding: "5px" }}><FaInstagram></FaInstagram></a>
                               ) : (
                                 <a></a>
                               )}
@@ -217,8 +228,9 @@ export default class Lehrkraefte extends Component {
                     <h2 className = "b" style ={{paddingLeft: "70px"}}>Musikschul-Team</h2>
                 <div className='gallery' >
                 
-                    <Gallery style={{position: "fixed"}} margin={2}  images={IMAGES} backdropClosesModal={true} showImageCount={false} enableImageSelection={false} thumbnailWidth={200} thumbnailHeight={375} rowHeight={350}/>
+                    <Gallery margin={2}  images={IMAGES} backdropClosesModal={true} showImageCount={false} enableImageSelection={false} thumbnailWidth={200} thumbnailHeight={375} rowHeight={350}/>
                 </div>
+                <div style={{width: "0px", height: "1500px"}}></div>
             </div>
         )
     }

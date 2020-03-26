@@ -1,0 +1,134 @@
+/*Info*/
+.anmeldungInfoTextBold
+{
+    font-Weight: bold;
+    padding-Top: 20px;
+}
+
+.anmeldungInfoText
+{
+    background-Color: black;
+}
+
+.anmeldungInputText
+{
+    width: 64%;
+    margin: 5px;
+    background-color: rgb(15, 15, 15);
+    border-style: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.anmeldungInputTextSmall
+{
+    width: 31.5%;
+    margin: 5px;
+    background-color: rgb(15, 15, 15);
+    border-style: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.anmeldungInputTextSmaller
+{
+    width: 10.6%;
+    margin: 5px;
+    background-color: rgb(15, 15, 15);
+    border-style: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.anmeldungInputTextSmallest
+{
+    width: 5.6%;
+    margin: 5px;
+    background-color: rgb(15, 15, 15);
+    border-style: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.anmeldungCheckbox
+{
+    color: white;
+    border: 0;
+    background-Color: black;
+    margin: 10px 10px 10px 20px;
+}
+
+.anmeldungCheckboxText
+{
+    color: white;
+    display: inline;
+    text-Align: left;
+    background-Color: black;
+    cursor: pointer;
+}
+
+label
+{
+    width: 30%;
+    color: white;
+    background-color: black;
+}
+
+option
+{
+    background-Color: white;
+    color: black;
+}
+
+select
+{
+    background-Color: white;
+    width: 200px;
+}
+
+.anmeldungSelectSpacing
+{
+    padding-Top: 10px;
+    background-Color: black;
+}
+
+textarea
+{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+.btnSubmit
+{
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 35px;
+    margin-bottom: 10px;
+    
+}
+
+.flex
+{
+    display: flex;
+    justify-content: center;
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px rgb(15, 15, 15) inset !important;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+}

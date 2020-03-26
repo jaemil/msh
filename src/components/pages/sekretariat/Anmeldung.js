@@ -1,6 +1,24 @@
 import React, { Component, useState } from 'react'
+import { Table } from 'reactstrap';
+import Collapsible from 'react-collapsible';
+import css from "../../../css/Anmeldung.css"
+
+import {
+    Link
+} from "react-router-dom";
 
 function Anmeldung(){
+
+
+    const radioGray = {
+        color: "rgb(70,70,70)"
+    }
+
+    const emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const number5Format = /^[0-9][0-9][0-9][0-9][0-9]$/;
+    const number4Format = /^[0-9][0-9][0-9][0-9]$/;
+    const number2Format = /^[0-9][0-9]$/;
+    const timeFormat = /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/
 
     function componentDidMount() {
         const script = document.createElement("script");
@@ -19,310 +37,610 @@ function Anmeldung(){
         document.body.appendChild(iban_min);
     }
 
-    var [openVollmündig, setOpenVollmündig] = useState(false);
-
-    var [showInfo, setShowInfo] = useState(false);
-
-    function handleChange()
-    {
-        setOpenVollmündig(prevOpen => !prevOpen)
+    const style ={
+        invalid: {
+            borderColor: "rgb(232, 86, 72)",
+            borderStyle: "solid"
+        },
+        valid: {
+            borderColor: "rgb(61, 192, 151)",
+            borderStyle: "solid"
+        }
     }
 
-    function handleChange2()
+    const [state, setState] = useState({
+        info: false,
+
+        schuelerVorname: "",
+        schuelerNachname: "",
+        schuelerGeburtstagTag: "",
+        schuelerGeburtstagMonat: "",
+        schuelerGeburtstagJahr: "",
+
+        schuelerNichtVollmuendig: false,
+        erziehungsberechtigterVorname: "",
+        erziehungsberechtigterNachname: "",
+
+        schuelerStrasse: "",
+        schuelerHausnummer: "",
+        schuelerPostleitzahl: "",
+        schuelerOrt: "",
+
+        vollmuendigTelefon: "",
+        vollmuendigMobil: "",
+        vollmuendigEmail: "",
+
+        aktiveFamilieneMitglieder: false,
+        schueler1: "",
+        schueler2: "",
+        schueler3: "",
+
+        unterrichtsFach: "",
+        unterrichtsDauer: "",
+        unterrichtsTurnus: "",
+        unterrichtsEinheit: "",
+
+        moeglicheUnterrichtszeiten: false,
+        montagVon: "",
+        montagBis: "",
+        dienstagVon: "",
+        dienstagBis: "",
+        mittwochVon: "",
+        mittwochBis: "",
+        donnerstagVon: "",
+        donnerstagBis: "",
+        freitagVon: "",
+        freitagBis: "",
+
+        benoetigtInstrument: false,
+        leihInstrument: "",
+
+        sonstigeAnmerkung: false,
+        anmerkung: "",
+
+        radio: "",
+        radioAnrede: "",
+
+        sepaVorname: "",
+        sepaNachname: "",
+        sepaStraße: "",
+        sepaHausnummer: "",
+        sepaPostleitzahl: "",
+        sepaOrt: "",
+        sepaTelefon: "",
+        sepaEmail: "",
+        sepaKreditinstitut: "",
+        sepaIBAN: "",
+        sepaBIC: "",
+
+        absenden: false
+    })
+
+    function handleChange(event)
     {
-        setShowInfo(prevOpen => !prevOpen)
+        if (event.target.type == "text" || event.target.type == "tel" || event.target.type == "email"){
+            const { name, value } = event.target
+            setState((prevState) => ({
+                ...prevState,
+                [name]: value
+            }))
+        }
+        else if (event.target.type == "checkbox")
+        {
+            const { name, checked } = event.target
+            setState((prevState) => ({
+                ...prevState,
+                [name]: checked
+            }))
+        } 
+        else if (event.target.type == "radio")
+        {
+            const { name, value } = event.target
+            setState((prevState) => ({
+                ...prevState,
+                [name]: value
+            }))   
+
+            switch (value) {
+                case "sepaErziehungsberechtigter": {
+
+                    setState((prevState) => ({
+                        ...prevState,
+                        sepaVorname: [state.erziehungsberechtigterVorname],
+                        sepaNachname: [state.erziehungsberechtigterNachname],
+                        sepaStraße: [state.schuelerStrasse],
+                        sepaHausnummer: [state.schuelerHausnummer],
+                        sepaPostleitzahl: [state.schuelerPostleitzahl],
+                        sepaOrt: [state.schuelerOrt],
+                        sepaTelefon: [state.vollmuendigTelefon],
+                        sepaEmail: [state.vollmuendigEmail]
+                    }))
+
+                    break;
+                }
+                case "sepaSchueler": {
+
+                    setState((prevState) => ({
+                        ...prevState,
+                        sepaVorname: [state.schuelerVorname],
+                        sepaNachname: [state.schuelerNachname],
+                        sepaStraße: [state.schuelerStrasse],
+                        sepaHausnummer: [state.schuelerHausnummer],
+                        sepaPostleitzahl: [state.schuelerPostleitzahl],
+                        sepaOrt: [state.schuelerOrt],
+                        sepaTelefon: [state.vollmuendigTelefon],
+                        sepaEmail: [state.vollmuendigEmail]
+                    }))
+
+                    break;
+                }
+                case "sepaAnderer": {
+
+                    setState((prevState) => ({
+                        ...prevState,
+                        sepaVorname: "",
+                        sepaNachname: "",
+                        sepaStraße: "",
+                        sepaHausnummer: "",
+                        sepaPostleitzahl: "",
+                        sepaOrt: "",
+                        sepaTelefon: "",
+                        sepaEmail: ""
+                    }))
+
+                    break;
+                }
+                default: {
+                    setState((prevState) => ({
+                        ...prevState
+                    }))
+                }
+            }
+        }
+        else if(event.target.name == "anmerkung")
+        {
+            const { name, value } = event.target
+            setState((prevState) => ({
+                ...prevState,
+                [name]: value
+            }))
+        }else
+        {
+            const { name, value } = event.target
+            setState((prevState) => ({
+                ...prevState,
+                [name]: value
+            }))
+        }
     }
 
 
+    return (
+        <div>
 
-        return (
-            <div>
+        <h2 className = "r">Anmeldung</h2>
+        <div className = "blackContainer">
+        <div id="registration-is-payer" style={{ cursor: 'pointer', backgroundColor: "black" }}>
+                    <label className="anmeldungCheckboxText"><input checked={state.info} className="anmeldungCheckbox" onClick={handleChange} name="info" type="checkbox" />Infos zur Durchführung der Online-Anmeldung</label>
+                </div>
 
-            <h2 className = "r">Anmeldung</h2>
-            <div id="registration-is-payer" style={{ cursor: 'pointer' }}>
-                    <input style={{color: "white", border: "0", backgroundColor: "black", margin: "10px 10px 10px 20px"}} onClick={handleChange2} type="checkbox" id="registration-data-transfer-checkbox" name="is-payer" /> <div style={{color: "white", display: "inline", textAlign: "left"}}>Infos zur Durchführung der Online-Anmeldung</div>
-                    </div>
+        {state.info ? (<div className="anmeldungInfoText">
+                        <p>Hier kannst du dich für den Unterricht bei der Musikschule Hopf anmelden.
+                        Der Prozess ist ganz einfach, er besteht aus 3 Schritten.</p>
+                        <p className="anmeldungInfoTextBold">1. Online Formular ausfüllen:</p>
+                        <p>Bitte fülle alle markierten Felder aus. Grüne Farbe heißt, dass die Eingabe stimmt!
+                        Sobald sich der 'Absenden' - Button aktiviert kannst du das Formular abschicken.
+                        Daraufhin bekommst du einen Link zu einer PDF-Datei an deine E-Mail Adresse gesendet.</p>
+                        <p className="anmeldungInfoTextBold">2. PDF-Datei ausdrucken und unterschreiben:</p>
+                        <p>Während deine Anmeldung direkt hier bei uns ankommt solltest du die Anmeldung ausdrucken und unterschreiben.
+                        Die Anmeldung kannst du uns entweder per E-Mail oder per Post schicken. Natürlich kannst du die Anmeldung auch
+                        persönlich in der Musikschule unterschreiben.</p>
+                        <p className="anmeldungInfoTextBold">3. Lehrer, Tag und Uhrzeit:</p>
+                        <p>Das wichtigste fehlt natürlich noch. An welchem Tag, zu welcher Zeit und bei welchem Lehrer wird dein Unterricht sein?
+                        Dazu werden wir dich per Telefon oder E-Mail kontaktieren. Natürlich bist du auch dabei gerne eingeladen persönlich bei
+                        uns vorbei zu kommen.</p>
+                        <p style={{fontWeight: "bold"}}>Wichtig: Unterricht beginnt erst nach Eingang der unterschriebenen Anmeldung und der Bestätigung durch das Büro.</p>
+                        <p style={{fontWeight: "bold"}}>Wenn du Fragen hast, dann melde dich doch einfach bei uns, oder komm vorbei!</p>
 
-            {showInfo ? 
-                (<div>
-                <p>Hier kannst du dich für den Unterricht bei der Musikschule Hopf anmelden.
-                Der Prozess ist ganz einfach, er besteht aus 3 Schritten.</p>
-                <p style={{fontWeight: "bold", paddingTop: "20px"}}>1. Online Formular ausfüllen:</p>
-                <p>Bitte fülle alle markierten Felder aus. Grüne Farbe heißt, dass die Eingabe stimmt!
-                Sobald sich der 'Absenden' - Button aktiviert kannst du das Formular abschicken.
-                Daraufhin bekommst du einen Link zu einer PDF-Datei ([was ist eine
-                PDF-Datei?](https://acrobat.adobe.com/de/de/products/about-adobe-pdf.html)) an deine E-Mail Adresse gesendet.</p>
-                <p style={{fontWeight: "bold", paddingTop: "20px"}}>2. PDF-Datei ausdrucken und unterschreiben:</p>
-                <p>Während deine Anmeldung direkt hier bei uns ankommt solltest du die Anmeldung ausdrucken und unterschreiben.
-                Die Anmeldung kannst du uns entweder per E-Mail oder per Post schicken. Natürlich kannst du die Anmeldung auch
-                persönlich in der Musikschule unterschreiben.</p>
-                <p style={{fontWeight: "bold", paddingTop: "20px"}}>3. Lehrer, Tag und Uhrzeit:</p>
-                <p>Das wichtigste fehlt natürlich noch. An welchem Tag, zu welcher Zeit und bei welchem Lehrer wird dein Unterricht sein?
-                Dazu werden wir dich per Telefon oder E-Mail kontaktieren. Natürlich bist du auch dabei gerne eingeladen persönlich bei
-                uns vorbei zu kommen.</p>
-                <p style={{fontWeight: "bold"}}>Wichtig: Unterricht beginnt erst nach Eingang der unterschriebenen Anmeldung und der Bestätigung durch das Büro.</p>
-                <p style={{fontWeight: "bold"}}>Wenn du Fragen hast, dann melde dich doch einfach bei uns, oder komm vorbei!</p>
-
-        <hr />
-        <p style={{fontWeight: "bold"}}>Bitte alle <span style={{ color: 'orange' }}>orange markierten Felder</span> ausfüllen! Auf den "Absenden"-Button kann erst
-                geklickt werden, wenn alle erfolderlichen Felder nach Eingabe der erforderlichen Daten grün sind!</p></div>) : 
-                (<div style={{padding: "30px"}}></div>)}
-                
-        <form className="registration" acceptCharset="UTF-8">
+                        <hr />
+                    <p style={{ fontWeight: "bold" }}>Bitte alle <span style={{ backgroundColor: "black", color: "rgb(232, 86, 72)" }}>orange markierten Felder</span> ausfüllen! Auf den "Absenden"-Button kann erst
+                        geklickt werden, wenn alle erfolderlichen Felder nach Eingabe der erforderlichen Daten <span style={{
+                            backgroundColor: "black", color: "rgb(61, 192, 151)" }}>grün</span> sind!</p>
+                    </div>) 
+        : (<div style={{ padding: "20px", backgroundColor: "black" }}></div>)}</div>
             
-                    
-          <div className ="kp">
-          <h3 className="r">
-                        Name des Schülers:
-          </h3>
-                    <label htmlFor="registration-name">Vorname:</label>
-                    <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-name" name="name" placeholder="Vorname" maxLength={25} />
+
+
+        <form className="registration" acceptCharset="UTF-8">
+
+            <div className="blackContainer">
+                <h3 className="r">Name des Schülers:</h3>
+                <label>Vorname:</label>
+                    <input type="text" style={state.schuelerVorname.length > 0 ? style.valid : style.invalid } value={state.schuelerVorname} onChange={handleChange} className="anmeldungInputText" name="schuelerVorname" placeholder="Vorname" maxLength={25} />
+                <br />
+                <label>Nachname:</label>
+                    <input type="text" style={state.schuelerNachname.length > 0 ? style.valid : style.invalid} value={state.schuelerNachname} onChange={handleChange} className="anmeldungInputText" name="schuelerNachname" placeholder="Nachname" maxLength={25} />
+                <br />
+                <label>Geburtstdatum:</label>
+                    <input style={number2Format.test(state.schuelerGeburtstagTag) ? style.valid : style.invalid} type="text" value={state.schuelerGeburtstagTag} onChange={handleChange} className="anmeldungInputTextSmallest" name="schuelerGeburtstagTag" placeholder="TT" maxLength={2} />
+                    <input style={number2Format.test(state.schuelerGeburtstagMonat) ? style.valid : style.invalid} type="text" value={state.schuelerGeburtstagMonat} onChange={handleChange} className="anmeldungInputTextSmallest" name="schuelerGeburtstagMonat" placeholder="MM" maxLength={2} />
+                    <input style={number4Format.test(state.schuelerGeburtstagJahr) ? style.valid : style.invalid} type="text" value={state.schuelerGeburtstagJahr} onChange={handleChange} className="anmeldungInputTextSmaller" name="schuelerGeburtstagJahr" placeholder="JJJJ" maxLength={4} />
+                <br />
+            </div>
+
+
+
+            <div className ="blackContainer">
+                <div style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
+                        <label className="anmeldungCheckboxText"><input className="anmeldungCheckbox" checked={state.schuelerNichtVollmuendig} name="schuelerNichtVollmuendig" onClick={handleChange} type="checkbox" /> 
+                            Schüler noch nicht vollmündig und wohnhaft bei Erziehungsberechtigten (Vater/Mutter/Großeltern ...)</label>
+            </div>
+
+                    {state.schuelerNichtVollmuendig ? (<div style = {{backgroundColor: "black"}}>
+                    <h3 className ="r">Name des Erziehungsberechtigten</h3>
+                    <label>Vorname:</label>
+                        <input style={state.erziehungsberechtigterVorname.length > 0 ? style.valid : style.invalid} type="text" value={state.erziehungsberechtigterVorname} onChange={handleChange} className="anmeldungInputText" name="erziehungsberechtigterVorname" placeholder="Vorname" maxLength={25} />
                     <br />
-                    <label htmlFor="registration-surname">Nachname:</label>
-                    <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-surname" name="surname" placeholder="Nachname" maxLength={25} />
+                    <label>Nachname:</label>
+                        <input style={state.erziehungsberechtigterNachname.length > 0 ? style.valid : style.invalid} type="text" value={state.erziehungsberechtigterNachname} onChange={handleChange} className="anmeldungInputText" name="erziehungsberechtigterNachname" placeholder="Nachname" maxLength={25} />
                     <br />
-                    <label htmlFor="birthday">Geburtstdatum:</label>
-                    <input type="text" className="registration-text registration-validation-birthday registration-mandatory hasDatepicker registration-orange" id="registration-birthday" name="birthday" placeholder="Geburtsdatum" maxLength={45} />
-                    <br /></div>
+                </div>) 
+                : ( <div></div> )}
+            </div>
+                
 
-                    <div className ="kp">
-                    <div id="registration-is-payer" style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
-                    <input onClick={handleChange} type="checkbox" id="registration-data-transfer-checkbox" name="is-payer" /> <div style={{color: "white", display: "inline", textAlign: "left", backgroundColor: "black"}}>Schüler noch nicht vollmündig und wohnhaft bei Erziehungsberechtigten (Vater/Mutter/Großeltern ...)</div>
-                    </div>
 
-                    {openVollmündig ? (<div style = {{backgroundColor: "black"}}>
-                        <h3 className ="r">Name des Erziehungsberechtigten</h3>
-                        <label htmlFor="registration-name">Vorname:</label>
-                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-name" name="name" placeholder="Vorname" maxLength={25} />
-                        <br />
-                        <label htmlFor="registration-surname">Nachname:</label>
-                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-surname" name="surname" placeholder="Nachname" maxLength={25} />
-                        <br />
-                    </div>) : ( <div></div> )}</div>
-                    
-                    <div className ="kp">
-                    <h3 className="r">
-                        Wohnort des Schülers:
-          </h3>
+            <div className ="blackContainer">
+                <h3 className="r">Wohnort des Schülers:</h3>
 
-                    <label htmlFor="street">Straße Hausnummer:</label>
-                    <input type="text" className="registration-text registration-validation-has-number registration-mandatory registration-orange" id="registration-street" name="street" placeholder="Straße Hausnummer" maxLength={45} />
+                <label>Straße, Hausnummer:</label>
+                    <input type="text" style={state.schuelerStrasse.length > 0 ? style.valid : style.invalid} value={state.schuelerStrasse} onChange={handleChange} className="anmeldungInputTextSmall" name="schuelerStrasse" placeholder="Straße" maxLength={45} />
+                    <input type="text" style={state.schuelerHausnummer.length > 0 ? style.valid : style.invalid} value={state.schuelerHausnummer} onChange={handleChange} className="anmeldungInputTextSmall" name="schuelerHausnummer" placeholder="Hausnummer" maxLength={45} />
+                <br />
+                <label>Postleitzahl, Ort:</label>
+                    <input type="text" style={number5Format.test(state.schuelerPostleitzahl)? style.valid : style.invalid} value={state.schuelerPostleitzahl} onChange={handleChange} className="anmeldungInputTextSmall" name="schuelerPostleitzahl" className="anmeldungInputTextSmall" placeholder="PLZ" maxLength={5} />
+                    <input type="text" style={state.schuelerOrt.length > 0 ? style.valid : style.invalid} value={state.schuelerOrt} onChange={handleChange} className="anmeldungInputTextSmall" name="schuelerOrt" className="anmeldungInputTextSmall" placeholder="Ort" maxLength={45} />
+                <br />
+            </div>
+
+
+
+            <div className = "blackContainer">
+                <h3 className="r">Kontaktdaten <a style={{fontSize: "20px"}}>(vollmündiger Schüler/Erziehungsberechtigter)</a>:</h3>
+
+                <label>Telefon privat:</label>
+                    <input style={state.vollmuendigTelefon.length > 0 ? style.valid : style.invalid} type="tel" value={state.vollmuendigTelefon} onChange={handleChange} className="anmeldungInputTextSmall" name="vollmuendigTelefon" className="anmeldungInputText" placeholder="Telefon" maxLength={30} />
+                <br />
+                <label>Mobil privat:</label>
+                    <input style={state.vollmuendigMobil.length > 0 ? style.valid : style.invalid} type="tel" value={state.vollmuendigMobil} onChange={handleChange} className="anmeldungInputText" name="vollmuendigMobil" placeholder="Mobil" maxLength={30} />
+                <br />
+                <label>E-Mail:</label>
+                    <input style={emailFormat.test(state.vollmuendigEmail) ? style.valid : style.invalid} type="email" value={state.vollmuendigEmail} onChange={handleChange} className="anmeldungInputText" name="vollmuendigEmail" placeholder="E-Mail" maxLength={45} />
+                <br />
+            </div>
+
+
+
+            <div className ="blackContainer">
+                <div style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
+                        <label className="anmeldungCheckboxText"><input className="anmeldungCheckbox" checked={state.aktiveFamilieneMitglieder} onClick={handleChange} type="checkbox" name="aktiveFamilieneMitglieder" /> 
+                            Weitere Geschwister-Kinder in der Musikschule:</label>
+                </div>
+
+                    {state.aktiveFamilieneMitglieder ? (<div style = {{backgroundColor: "black"}}>
+                    <label>1. Nachname, Vorname:</label>
+                        <input style={state.schueler1.length > 0 ? style.valid : null } type="text" value={state.schueler1} onChange={handleChange} className="anmeldungInputText" name="schueler1" placeholder="Nachname, Vorname" maxLength={25} />
                     <br />
-                    <label htmlFor="registration-plz">PLZ:</label>
-                    <input type="text" className="registration-text registration-validation-number registration-mandatory registration-orange" id="registration-plz" name="plz" placeholder="PLZ" maxLength={5} />
+                    <label>2. Nachname, Vorname:</label>
+                        <input style={state.schueler2.length > 0 ? style.valid : null} type="text" value={state.schueler2} onChange={handleChange} className="anmeldungInputText" name="schueler2" placeholder="Nachname, Vorname" maxLength={25} />
                     <br />
-                    <label htmlFor="registration-city">Ort:</label>
-                    <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-city" name="city" placeholder="Ort" maxLength={45} />
-                    <br /></div>
-
-                    <div className = "kp">
-                    <h3 className="r">
-                    Kontaktdaten <a style={{fontSize: "20px"}}>(vollmündiger Schüler/Erziehungsberechtigter)</a>:
-      </h3>
-
-                    <label htmlFor="registration-phone">Telefon privat:</label>
-                    <input type="tel" className="registration-text registration-validation-phone registration-mandatory registration-orange" id="registration-phone" name="phone" placeholder="Telefon" maxLength={30} />
+                    <label>3. Nachname, Vorname:</label>
+                        <input style={state.schueler3.length > 0 ? style.valid : null} type="text" value={state.schueler3} onChange={handleChange} className="anmeldungInputText" name="schueler3" placeholder="Nachname, Vorname" maxLength={25} />
                     <br />
-                    <label htmlFor="registration-mobile">Mobil privat:</label>
-                    <input type="tel" className="registration-text registration-validation-phone" id="registration-mobile" name="mobile" placeholder="Mobil" maxLength={30} />
+                </div>) 
+                : 
+                ( <div></div> )}
+            </div>
+
+
+
+            <br />
+            <br />
+
+
+
+            <div className="blackContainer">
+
+                <div className="anmeldungSelectSpacing">
+                    <h3 className="r">Unterrichtsdaten:</h3>
                     <br />
-                    <label htmlFor="registration-email">E-Mail:</label>
-                    <input type="email" className="registration-text registration-validation-email registration-mandatory registration-orange" id="registration-email" name="email" placeholder="E-Mail" maxLength={45} />
-                    <br /></div>
 
-                    <div className ="kp">
-                    <div id="registration-is-payer" style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
-                    <input onClick={handleChange} type="checkbox" id="registration-data-transfer-checkbox" name="is-payer" /> <div style={{color: "white", display: "inline", textAlign: "left", backgroundColor: "black"}}>Weitere aktive Familienmitglieder in der Musikschule:</div>
-                    </div>
-                    {openVollmündig ? (<div style = {{backgroundColor: "black"}}>
-                        <label htmlFor="registration-name">1. Nachname, Vorname:</label>
-                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-name" name="name" placeholder="Nachname, Vorname:" maxLength={25} />
-                        <br />
-                        <label htmlFor="registration-surname">2. Nachname, Vorname:</label>
-                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-surname" name="surname" placeholder="Nachname, Vorname:" maxLength={25} />
-                        <br />
-                        <label htmlFor="registration-surname">3. Nachname, Vorname:</label>
-                        <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-surname" name="surname" placeholder="Nachname, Vorname:" maxLength={25} />
-                        <br />
-                    </div>) : ( <div></div> )}</div>
+                    <label>Unterrichts-Fach:</label>
 
-                    <div id="registration-needs-parent" style={{ display: 'none' }}>
-                        <h3>
-                            Erziehungsberechtigter
-            </h3>
-                        <div id="registration-parent-same-address" style={{ cursor: 'pointer' }}>
-                            <input type="checkbox" id="registration-parent-transfer-checkbox" name="parent-same-address" /> Selbe
-              Anschrift wie Schüler</div>
-                        <label htmlFor="registration-parent-name">Vorname:</label>
-                        <input type="text" className="registration-text registration-validation-string registration-orange" id="registration-parent-name" name="parent-name" placeholder="Vorname" maxLength={50} />
-                        <br />
-                        <label htmlFor="registration-parent-surname">Nachname:</label>
-                        <input type="text" className="registration-text registration-validation-string registration-orange" id="registration-parent-surname" name="parent-surname" placeholder="Nachname" maxLength={50} />
-                        <br />
-                        <label htmlFor="registration-parent-street">Straße Hausnummer:</label>
-                        <input type="text" className="registration-text registration-validation-has-number registration-orange" id="registration-parent-street" name="parent-street" placeholder="Straße Hausnummer" maxLength={45} />
-                        <br />
-                        <label htmlFor="registration-parent-plz">PLZ</label>
-                        <input type="text" className="registration-text registration-validation-number registration-orange" id="registration-parent-plz" name="parent-plz" placeholder="PLZ" maxLength={5} />
-                        <br />
-                        <label htmlFor="registration-parent-city">Ort:</label>
-                        <input type="text" className="registration-text registration-orange" id="registration-parent-city" name="parent-city" placeholder="Ort" maxLength={50} />
-                        <br />
-                    </div>
-                    <hr />
-                    <div className ="kp">
-
-                    <div style ={{paddingTop: "10px", backgroundColor: "black"}}>
-                    <h3 className="r">
-                        Unterrichtsdaten:
-          </h3>
-                    <br />
-                    <label htmlFor="registration-lecture">Unterrichtsfach:</label>
-                    <select style={{backgroundColor: "white", width: "200px"}} id="registration-lecture" placeholder="Bitte auswählen" className="registration-orange" name="lecture" size={1}>
-                    <option style = {{backgroundColor: "white",color: "black"}}>
+                        <select style={state.unterrichtsFach.length > 0 && state.unterrichtsFach != "Bitte auswählen" ? style.valid : style.invalid} value={state.unterrichtsFach} onChange={handleChange} placeholder="Bitte auswählen" name="unterrichtsFach" size={1}>
+                        <option>
                             Bitte auswählen
-            </option>    
-                    <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>    
+                        <option>
                             Gitarre
-            </option>
-            <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             E-Gitarre
-            </option>
-                        <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             E-Bass
-            </option>
-                        <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Gesang
-            </option>
-                        <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Klavier
-            </option>
-                        <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Schlagzeug
-            </option>
-            <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Cajon
-            </option>
-            <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Darbuka
-            </option>
-                        <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Blockflöte
-            </option>
-                        <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Querflöte
-            </option>
-                        <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Frühes Musizieren
-            </option>
-                    </select></div>
-                    <br />
-                    <div style ={{paddingTop: "10px", backgroundColor: "black"}}>
-                    <label htmlFor="registration-dauer">Unterrichsdauer:</label><select style={{backgroundColor: "white", width: "200px"}} id="registration-lecture" placeholder="Bitte auswählen" className="registration-orange" name="lecture" size={1}>
-                    <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                    </select>
+                </div>
+
+                <br />
+
+                <div className="anmeldungSelectSpacing">
+                    <label>Unterrichts-Dauer:</label>
+
+                        <select style={state.unterrichtsDauer.length > 0 && state.unterrichtsDauer != "Bitte auswählen" ? style.valid : style.invalid} value={state.unterrichtsDauer} onChange={handleChange} placeholder="Bitte auswählen" name="unterrichtsDauer" size={1}>
+                        <option>
                             Bitte auswählen
-            </option>    
-                    <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>    
+                        <option>
                             30 Min.
-            </option>
-            <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             45 Min.
-            </option>
-                        <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             60 Min.
-            </option>
+                        </option>
+                    </select>
+                </div>
 
-                    </select></div>
-                    <br />
-                    <div style ={{paddingTop: "10px", backgroundColor: "black"}}>
-                    <label htmlFor="registration-dauer">Unterrichtsturnus:</label><select style={{backgroundColor: "white", width: "200px"}} id="registration-lecture" placeholder="Bitte auswählen" className="registration-orange" name="lecture" size={1}>
-                    <option style = {{backgroundColor: "white",color: "black"}}>
+                <br />
+
+                <div className="anmeldungSelectSpacing">
+                    <label>Unterrichts-Turnus:</label>
+
+                        <select style={state.unterrichtsTurnus.length > 0 && state.unterrichtsTurnus != "Bitte auswählen" ? style.valid : style.invalid} value={state.unterrichtsTurnus} onChange={handleChange} placeholder="Bitte auswählen" name="unterrichtsTurnus" size={1}>
+                        <option>
                             Bitte auswählen
-            </option>    
-                    <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>    
+                        <option>
                             Wöchentlich
-            </option>
-            <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             14 tägig
-            </option>
-            <option style = {{backgroundColor: "white",color: "black"}}>
+                        </option>
+                        <option>
                             Zehnerkarte
-            </option>
-                        
+                        </option>
+                    </select>
+                </div>
+                
+                <br />  
 
-                    </select></div>
-                    
-                    <div style ={{paddingTop: "10px", paddingBottom: "10px", backgroundColor: "black"}}>
-                    <br />  
+                <div className="anmeldungSelectSpacing">
+                    <label htmlFor="registration-dauer">Unterrichts-Einheit:</label>
 
-                    <label htmlFor="registration-dauer">Unterrichtseinheit:</label><select style={{backgroundColor: "white", width: "200px"}} id="registration-lecture" placeholder="Bitte auswählen" className="registration-orange" name="lecture" size={1}>
-                    <option style = {{backgroundColor: "white",color: "black"}}>
+                        <select style={state.unterrichtsEinheit.length > 0 && state.unterrichtsEinheit != "Bitte auswählen" ? style.valid : style.invalid} value={state.unterrichtsEinheit} onChange={handleChange} placeholder="Bitte auswählen" name="unterrichtsEinheit" size={1}>
+                        <option>
                             Bitte auswählen
-            </option>    
-                    <option style = {{backgroundColor: "white",color: "black"}}>
-                    Einzel
-            </option>
-            <option style = {{backgroundColor: "white",color: "black"}}>
-            Zweier
-            </option>
-            <option style = {{backgroundColor: "white",color: "black"}}>
-            Gruppe (ab 3)
-            </option>
+                        </option>    
+                        <option>
+                            Einzel
+                        </option>
+                        <option>
+                            Zweier
+                        </option>
+                        <option>
+                            Gruppe (ab 3)
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div className = "blackContainer">
+                <div style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
+                        <label className="anmeldungCheckboxText"><input className="anmeldungCheckbox" checked={state.moeglicheUnterrichtszeiten} onClick={handleChange} type="checkbox" name="moeglicheUnterrichtszeiten" />
+                            Mögliche Unterrichtszeiten:</label>
+                </div>
+
+                    {state.moeglicheUnterrichtszeiten ? (<div style={{ backgroundColor: "black" }}>
+                    
+                    <label>Montag:</label>
+                        <input style={timeFormat.test(state.montagVon) ? style.valid : style.invalid} value={state.montagVon} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="montagVon" placeholder="Von" maxLength={50} />
+                        <input value={state.montagBis} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="montagBis" placeholder="Bis" maxLength={50} />
+                    <br />
+                    <label>Dienstag:</label>
+                        <input value={state.dienstagVon} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="dienstagVon" placeholder="Von" maxLength={50} />
+                        <input value={state.dienstagBis} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="dienstagBis" placeholder="Bis" maxLength={50} />
+                    <br />
+                    <label>Mittwoch:</label>
+                        <input value={state.mittwochVon} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="mittwochVon" placeholder="Von" maxLength={50} />
+                        <input value={state.mittwochBis} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="mittwochBis" placeholder="Bis" maxLength={50} />
+                    <br />
+                    <label>Donnerstag:</label>
+                        <input value={state.donnerstagVon} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="donnerstagVon" placeholder="Von" maxLength={50} />
+                        <input value={state.donnerstagBis} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="donnerstagBis" placeholder="Bis" maxLength={50} />
+                    <br />
+                    <label>Freitag:</label>
+                        <input value={state.freitagVon} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="freitagVon" placeholder="Von" maxLength={50} />
+                        <input value={state.freitagBis} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="freitagBis" placeholder="Bis" maxLength={50} />
+                    <br />
+                    <br />
+                    <br />
+
+                </div>) : (<div></div>)}
+            
+            
+
+            
+                <div style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
+                        <label className="anmeldungCheckboxText"><input checked={state.benoetigtInstrument} className="anmeldungCheckbox" onClick={handleChange} type="checkbox" name="benoetigtInstrument" /> 
+                            Ich benötige ein Leihinstrument <Link to="/gebuehren" target="_blank" style={{paddingRight: "50px"}}><a>(Leihgebühren)</a></Link></label>
+                        {state.benoetigtInstrument ? (<div style={{ backgroundColor: "black", display: "inline" }}>
+
+                            <select style={state.leihInstrument.length > 0 && state.leihInstrument != "Bitte auswählen" ? style.valid : style.invalid} value={state.leihInstrument} onChange={handleChange} placeholder="Bitte auswählen" name="leihInstrument" size={1}>
+                                <option>
+                                    Bitte auswählen
+                            </option>
+                                <option>
+                                    Klassische Gitarre (alle Größen)
+                            </option>
+                                <option>
+                                    E-Gitarre
+                            </option>
+                                <option>
+                                    Bass
+                            </option>
+                                <option>
+                                    E-Gitarren-/Bassverstärker
+                            </option>
+                                <option>
+                                    Keyboard
+                            </option>
+                                <option>
+                                    E-Piano
+                            </option>
+                            </select>
+
+                        </div>) : (<div></div>)}
+                </div>
+
+                    
+            
+
+
+
+            
+                <div style={{ cursor: 'pointer', backgroundColor: "black", paddingBottom: "10px" }}>
+                        <label className="anmeldungCheckboxText"><input checked={state.sonstigeAnmerkung} className="anmeldungCheckbox" onClick={handleChange} type="checkbox" name="sonstigeAnmerkung" />
+                            Sonstige Anmerkungen</label>
+                </div>
+
+                    {state.sonstigeAnmerkung ? (<div style={{ backgroundColor: "black" }}>
                         
+                        <textarea type="textarea" value={state.anmerkung} onChange={handleChange} name="anmerkung" placeholder="Anmerkungen" />
+                    <br />
+                    </div>) : (<div></div>)}
+            </div>
 
-                    </select></div>
 
-                    </div>
-                    <br />
-                    <hr />
-                    <h3 className="r">
-                        SEPA-Lastschrift
-          </h3>
-                    <div id="registration-is-payer" style={{ cursor: 'pointer' }}>
-                        <input type="checkbox" id="registration-data-transfer-checkbox" name="is-payer" /> Schüler ist Zahlender
-          </div>
-                    <label htmlFor="registration-sepa-name">Vorname:</label>
-                    <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-sepa-name" name="sepa-name" placeholder="Vorname" maxLength={50} />
-                    <br />
-                    <label htmlFor="registration-sepa-surname">Nachname:</label>
-                    <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-sepa-surname" name="sepa-surname" placeholder="Nachname" maxLength={50} />
-                    <br />
-                    <label htmlFor="registration-sepa-street">Straße Hausnummer:</label>
-                    <input type="text" className="registration-text registration-validation-has-number registration-mandatory registration-orange" id="registration-sepa-street" name="sepa-street" placeholder="Straße Hausnummer" maxLength={45} />
-                    <br />
-                    <label htmlFor="registration-sepa-plz">PLZ</label>
-                    <input type="text" className="registration-text registration-validation-number registration-mandatory registration-orange" id="registration-sepa-plz" name="sepa-plz" placeholder="PLZ" maxLength={5} />
-                    <br />
-                    <label htmlFor="registration-sepa-city">Ort:</label>
-                    <input type="text" className="registration-text registration-mandatory registration-orange" id="registration-sepa-city" name="sepa-city" placeholder="Ort" maxLength={50} />
-                    <br />
-                    <label htmlFor="registration-sepa-bank">Kreditinstitut:</label>
-                    <input type="text" className="registration-text registration-validation-string registration-mandatory registration-orange" id="registration-sepa-bank" name="sepa-bank" placeholder="Kreditinstitut" />
-                    <br />
-                    <label htmlFor="registration-sepa-iban">IBAN:</label>
-                    <input type="text" className="registration-text registration-validation-iban registration-mandatory registration-orange" id="registration-sepa-iban" name="sepa-iban" placeholder="IBAN" />
-                    <br />
-                    <label htmlFor="registration-sepa-bic">BIC:</label>
-                    <input type="text" className="registration-text registration-validation-bic registration-mandatory registration-orange" id="registration-sepa-bic" name="sepa-bic" placeholder="BIC/SWIFT" />
-                    <hr />
-                    <label htmlFor="registration-notes" style={{ display: 'block' }}>Sonstige Anmerkungen:</label>
-                    <textarea className="registration-text" id="registration-notes" name="notes" placeholder="Anmerkungen" defaultValue={""} />
-                    <br />
-                    <hr />
-                    <label htmlFor="absenden">&nbsp;</label>
-                    <input className="registration-disabled" id="registration-submit" type="submit" name="absenden" defaultValue="Absenden" disabled="disabled" />
-                </form>
-                **Bei Problemen mit dem Formular kannst du dich an webmaster@musikschule-hopf.de wenden. Schicke am besten einen
-                Screenshot oder eine Beschreibung des Problems, damit wir es so schnell wie möglich beheben können.**
-                ### Bitte lesen Sie die [Allgemeinen Geschäftsbedingungen](https://musikschule-hopf.de/sekretariat/schulordnung), mit
-                der Unterschrift auf der Anmeldung stimmen Sie den AGBs zu.
-                Vor dem ersten Einzug einer SEPA-Basis-Lastschrift wird mich die Musikschule Hopf über den Einzug in dieser
-                Verfahrensart unterrichten.
-                Aus datenschutzrechtlichen Gründen weisen wir darauf hin, dass die obigen Angaben in einem Computer gespeichert, aber
-                nur für Zwecke der Musikschule verwendet und nicht an Dritte weitergegeben werden.
-      </div>
-        )
-    }
+            <br />
+            <br />
+                
 
+            <div className="blackContainer"> 
+                <h3 className="r">SEPA-Lastschrift</h3>
+                
+
+                <label>
+                    <label style={state.radio == "sepaErziehungsberechtigter" ? null: radioGray} className="anmeldungCheckboxText"><input checked={state.radio === "sepaErziehungsberechtigter"} className="anmeldungCheckbox" name="radio" onChange={handleChange} type="radio" value="sepaErziehungsberechtigter" />
+                            Erziehungsberechtigter ist Zahlender</label>
+                </label>
+                <br />
+                <label>
+                    <label style={state.radio == "sepaSchueler" ? null : radioGray} className="anmeldungCheckboxText"><input checked={state.radio === "sepaSchueler"} name="radio" className="anmeldungCheckbox" onChange={handleChange} type="radio" value="sepaSchueler" />
+                            Schüler ist Zahlender</label>
+                </label>
+                <br />
+                <label>
+                    <label style={state.radio == "sepaAnderer" ? null : radioGray} className="anmeldungCheckboxText"><input checked={state.radio === "sepaAnderer"} name="radio" className="anmeldungCheckbox" onChange={handleChange} type="radio" value="sepaAnderer" />
+                            Anderer Zahlender (Oma, Onkel, ...)</label>
+                </label>
+                <br />
+                <hr />
+
+                    <label>Anrede:</label>
+                    <label>
+                        <label style={state.radioAnrede == "sepaFrau" ? null : radioGray} className="anmeldungCheckboxText"><input checked={state.radioAnrede === "sepaFrau"} className="anmeldungCheckbox" name="radioAnrede" onChange={handleChange} type="radio" value="sepaFrau" />
+                            Frau</label>
+                        <label style={state.radioAnrede == "sepaMann" ? null : radioGray} className="anmeldungCheckboxText"><input checked={state.radioAnrede === "sepaMann"} className="anmeldungCheckbox" name="radioAnrede" onChange={handleChange} type="radio" value="sepaMann" />
+                            Mann</label>
+                    </label>
+                    <br />
+
+                <label>Vorname:</label>
+                    <input value={state.sepaVorname} onChange={handleChange} className="anmeldungInputText" type="text" name="sepaVorname" placeholder="Vorname" maxLength={50} />
+                <br />
+                <label>Nachname:</label>
+                    <input value={state.sepaNachname} onChange={handleChange} className="anmeldungInputText" type="text" name="sepaNachname" placeholder="Nachname" maxLength={50} />
+                <br />
+                <label>Straße, Hausnummer:</label>
+                    <input value={state.sepaStraße} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="sepaStraße" placeholder="Straße" maxLength={45} />
+                    <input value={state.sepaHausnummer} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="sepaHausnummer" placeholder="Hausnummer" maxLength={45} />
+                <br />
+                <label>PLZ, Ort:</label>
+                    <input value={state.sepaPostleitzahl} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="sepaPostleitzahl" placeholder="PLZ" maxLength={5} />
+                    <input value={state.sepaOrt} onChange={handleChange} className="anmeldungInputTextSmall" type="text" name="sepaOrt" placeholder="Ort" maxLength={50} />
+                <br />
+                    <label>Telefon privat:</label>
+                    <input type="tel" value={state.sepaTelefon} onChange={handleChange} className="anmeldungInputTextSmall" name="sepaTelefon" className="anmeldungInputText" placeholder="Telefon" maxLength={30} />
+                    <br />
+                    <label>E-Mail:</label>
+                    <input type="email" style={style.valid} value={state.sepaEmail} onChange={handleChange} className="anmeldungInputText" name="sepaEmail" placeholder="E-Mail" maxLength={45} />
+                    <br />
+                <hr />
+                <label>Kreditinstitut:</label>
+                    <input value={state.sepaKreditinstitut} onChange={handleChange} className="anmeldungInputText" type="text" name="sepaKreditinstitut" placeholder="Kreditinstitut" />
+                <br />
+                <label>IBAN:</label>
+                    <input value={state.sepaIBAN} onChange={handleChange} className="anmeldungInputText" type="text" name="sepaIBAN" placeholder="IBAN" />
+                <br />
+                <label>BIC:</label>
+                    <input value={state.sepaBIC} onChange={handleChange} className="anmeldungInputText" type="text" name="sepaBIC" placeholder="BIC/SWIFT" />
+            </div>
+            <br/>
+
+                <div className="blackContainer">
+                    
+                    <p style = {{textAlign: "justify"}}>Bitte lesen Sie die <Link to="/schulordnung" target="_blank">Allgemeinen Geschäftsbedingungen</Link>! <br/>Mit
+                    der Unterschrift auf der Anmeldung stimmen Sie den AGBs zu.
+                    Vor dem ersten Einzug einer SEPA-Basis-Lastschrift wird Sie die Musikschule Hopf über den Einzug in dieser
+                    Verfahrensart unterrichten.
+                    Aus datenschutzrechtlichen Gründen weisen wir darauf hin, dass die obigen Angaben in einem Computer gespeichert, aber
+                    nur für Zwecke der Musikschule verwendet und nicht an Dritte weitergegeben werden.
+                </p>
+                </div>
+
+            <div className= "blackContainer flex">
+                    <button style={state.absenden ? style.valid : style.invalid} disabled={state.absenden} onClick={handleChange} disabled={state.absenden} className="btnSubmit">Anmeldung absenden</button>
+            </div>
+                
+            </form>
+            
+
+            
+            <Collapsible trigger={<div className="img_text_hover" style={{ padding: "10px" }}><a style={{ color: "#E85648"}}>Probleme bei der Anmeldung?</a></div>}>
+
+                    <p>
+                        Bei Problemen mit dem Formular kannst du dich an emilhopf@gmail.com wenden.
+                    </p>
+            </Collapsible>
+        </div>
+    )
+}
 
 export default Anmeldung

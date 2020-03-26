@@ -5,7 +5,7 @@ export default class Abmeldung extends Component {
         return (
             <div>
                 <h2 className ="r">Abmeldung</h2>
-                <br /><div className="kp">
+                <br /><div className="blackContainer" style={{textAlign: "justify"}}>
                 <p>Der Austritt aus der Musikschule erfolgt durch eine schriftliche Abmeldung (per E-Mail oder Post) spätestens sechs Wochen zum Ende eines Semesters. Wird keine Abmeldung eingereicht, wird der Unterrichtsvertrag im Programm Frühes Musizieren bis zur Schulreife, im Instrumental-/Gesangsunterricht im folgenden Schuljahr fortgesetzt.</p>
 
                 <p>Das Schulsemester beginnt im Programm "Frühes Musizieren" am 1.September / 1.März und endet am 28. Februar / 31.August.</p>

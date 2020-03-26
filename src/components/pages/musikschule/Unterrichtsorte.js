@@ -7,7 +7,7 @@ export default class Unterrichtsorte extends Component {
         return (
             <div>
                 <h2 className="b">Unterrichtsorte</h2>
-                <div className="kp">
+                <div className="blackContainer">
                 <Table dark>
                 <thead>
                     <tr style ={{fontSize: "25px"}}>
