@@ -2,13 +2,20 @@ import React, { Component, useState } from 'react'
 import css from '../../css/Navbar.css'
 
 import {
-    Link, Redirect 
+    Link, Redirect
 } from "react-router-dom";
 
 import { useHistory } from 'react-router-dom'
 
 import Banner from "../../img/Banner.png"
 import note from "../../img/note.png"
+
+import { slide as Menu } from 'react-burger-menu'
+
+import { isMobile } from 'react-device-detect';
+
+import { SlideDown } from 'react-slidedown'
+import 'react-slidedown/lib/slidedown.css'
 
 
 const _Navbar = (props) => {
@@ -79,10 +86,9 @@ const _Navbar = (props) => {
         color: "#E9B041"
     }
 
-    function handleClick(color)
-    {
-        switch(color){
-            case "green":{
+    function handleClick(color) {
+        switch (color) {
+            case "green": {
                 setState({
                     greenFokus: true,
                     redFokus: false,
@@ -91,7 +97,7 @@ const _Navbar = (props) => {
                 })
                 break;
             }
-            case "red":{
+            case "red": {
                 setState({
                     greenFokus: false,
                     redFokus: true,
@@ -121,8 +127,7 @@ const _Navbar = (props) => {
         }
     }
 
-    function handleHover(color)
-    {
+    function handleHover(color) {
         switch (color) {
             case "green": {
                 setHover({
@@ -173,56 +178,99 @@ const _Navbar = (props) => {
     }
 
     let history = useHistory();
-    function changeLink()
-    {
+    function changeLink() {
         history.push("/kontakt");
         handleClick("yellow")
     }
 
+    function showSettings(event) {
+        event.preventDefault();
 
-    return (
-        <div className="nav" style={{ display: "flex", flexWrap: "nowrap" }}>
-            
-            <div style={{ width:"30%"}}></div>
-            <div className ="logoAnimation">
-                <img className="logo" src={Banner}></img>
-                <img className = "noteAnimation" src={note}></img>
+  }
+
+    return (<div>
+
+        {isMobile ?
+        <div className="mobile">
+                
+                <Menu right >
+                    <div className="nav" style = {{boxShadow: "none", border: "0"}} >
+                    
+                    <ul>
+                        <li><Link to="/info"><h1 onMouseEnter={() => handleHover("green")} onMouseLeave={() => handleHover("")} style={hover.greenHover || state.greenFokus ? green : null} onClick={() => handleClick("green")}><font style={hover.greenHover || state.greenFokus ? font : greenFont}>INFO'S</font></h1></Link></li>
+                        <li>
+
+                            <a id="r" ><h1 onMouseEnter={() => handleHover("red")} onMouseLeave={() => handleHover("")} style={hover.redHover || state.redFokus ? red : null}><font style={hover.redHover || state.redFokus ? font : redFont}>SEKRETARIAT</font></h1></a>
+                                    <ul onMouseEnter={() => handleHover("red")} onMouseLeave={() => handleHover("")}>
+                                        <li><Link to="/buero"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">BÜRO</a></Link></li>
+                                        <li><Link to="/fragen_antworten"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">FRAGE-ANTWORT</a></Link></li>
+                                        <li><Link to="/gebuehren"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">GEBÜHREN</a></Link></li>
+                                        <li><Link to="/anmeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">ANMELDUNG</a></Link></li>
+                                        <li><Link to="/ummeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">UMMELDUNG</a></Link></li>
+                                        <li><Link to="/abmeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">ABMELDUNG</a></Link></li>
+                                        <li><Link to="/ferienkalender"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">FERIENKALENDER</a></Link></li>
+                                        <li><Link to="/schulordnung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">SCHULORDNUNG</a></Link></li>
+                                    </ul>
+                        </li>
+                        <li><a id="b" ><h1 onMouseEnter={() => handleHover("blue")} onMouseLeave={() => handleHover("")} style={hover.blueHover || state.blueFokus ? blue : null}><font style={hover.blueHover || state.blueFokus ? font : blueFont}>MUSIKSCHULE</font></h1></a>
+                            <ul onMouseEnter={() => handleHover("blue")} onMouseLeave={() => handleHover("")}>
+                                <li><Link to="/ueber_uns"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">ÜBER UNS</a></Link></li>
+                                <li><Link to="/musikschul_team"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">MUSIKSCHUL-TEAM</a></Link></li>
+                                <li><Link to="/unterrichtsfaecher"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">UNTERRICHTSFÄCHER</a></Link></li>
+                                <li><Link to="/unterrichtsorte"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">UNTERRICHTSORTE</a></Link></li>
+                                <li><Link to="/partner"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">PARTNER</a></Link></li>
+                            </ul>
+                        </li>
+                        <li><Link to="/kontakt"><h1 onMouseEnter={() => handleHover("yellow")} onMouseLeave={() => handleHover("")} style={hover.yellowHover || state.yellowFokus ? yellow : null} onClick={() => handleClick("yellow")}><font style={hover.yellowHover || state.yellowFokus ? font : yellowFont}>KONTAKT</font></h1></Link></li>
+                        </ul></div>
+                </Menu>
+                
+
+        </div> 
+        :
+        <div className="nav" style={{ flexWrap: "nowrap" }}>
+
+
+
+            <div className="logoAnimation">
+                    <Link to="/"><img className="logo" src={Banner}></img></Link>
+                <img className="noteAnimation" src={note}></img>
             </div>
+
             <div className="innerNav">
-            <ul>
-                    <li><Link to="/"><h1 onMouseEnter={() => handleHover("green")} onMouseLeave={() => handleHover("")} style={hover.greenHover || state.greenFokus ? green : null} onClick={() => handleClick("green")}><font style={hover.greenHover || state.greenFokus ? font : greenFont}>INFORMATION</font></h1></Link></li>
-                <li>
+                <ul>
+                    <li><Link to="/info"><h1 onMouseEnter={() => handleHover("green")} onMouseLeave={() => handleHover("")} style={hover.greenHover || state.greenFokus ? green : null} onClick={() => handleClick("green")}><font style={hover.greenHover || state.greenFokus ? font : greenFont}>INFO'S</font></h1></Link></li>
+                    <li>
 
                         <a id="r" ><h1 onMouseEnter={() => handleHover("red")} onMouseLeave={() => handleHover("")} style={hover.redHover || state.redFokus ? red : null}><font style={hover.redHover || state.redFokus ? font : redFont}>SEKRETARIAT</font></h1></a>
-                    <ul onMouseEnter={() => handleHover("red")} onMouseLeave={() => handleHover("")}>
-                        <li><Link to="/buero"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">BÜRO</a></Link></li>
-                        <li><Link to="/fragen_antworten"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">FRAGE-ANTWORT</a></Link></li>
-                        <li><Link to="/gebuehren"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">GEBÜHREN</a></Link></li>
-                        <li><Link to="/anmeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">ANMELDUNG</a></Link></li>
-                        <li><Link to="/ummeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">UMMELDUNG</a></Link></li>
-                        <li><Link to="/abmeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">ABMELDUNG</a></Link></li>
-                        <li><Link to="/ferienkalender"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">FERIENKALENDER</a></Link></li>
-                        <li><Link to="/schulordnung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">SCHULORDNUNG</a></Link></li>
-                    </ul>
-                </li>
+                        <ul onMouseEnter={() => handleHover("red")} onMouseLeave={() => handleHover("")}>
+                            <li><Link to="/buero"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">BÜRO</a></Link></li>
+                            <li><Link to="/fragen_antworten"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">FRAGE-ANTWORT</a></Link></li>
+                            <li><Link to="/gebuehren"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">GEBÜHREN</a></Link></li>
+                            <li><Link to="/anmeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">ANMELDUNG</a></Link></li>
+                            <li><Link to="/ummeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">UMMELDUNG</a></Link></li>
+                            <li><Link to="/abmeldung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">ABMELDUNG</a></Link></li>
+                            <li><Link to="/ferienkalender"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">FERIENKALENDER</a></Link></li>
+                            <li><Link to="/schulordnung"><a onClick={() => handleClick("red")} className="r" onclick="scrollWin()">SCHULORDNUNG</a></Link></li>
+                        </ul>
+                    </li>
                     <li><a id="b" ><h1 onMouseEnter={() => handleHover("blue")} onMouseLeave={() => handleHover("")} style={hover.blueHover || state.blueFokus ? blue : null}><font style={hover.blueHover || state.blueFokus ? font : blueFont}>MUSIKSCHULE</font></h1></a>
-                    <ul onMouseEnter={() => handleHover("blue")} onMouseLeave={() => handleHover("")}>
-                        <li><Link to="/ueber_uns"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">ÜBER UNS</a></Link></li>
-                        <li><Link to="/musikschul_team"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">MUSIKSCHUL-TEAM</a></Link></li>
-                        <li><Link to="/unterrichtsfaecher"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">UNTERRICHTSFÄCHER</a></Link></li>
-                        <li><Link to="/unterrichtsorte"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">UNTERRICHTSORTE</a></Link></li>
-                        <li><Link to="/partner"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">PARTNER</a></Link></li>
-                    </ul>
-                </li>
+                        <ul onMouseEnter={() => handleHover("blue")} onMouseLeave={() => handleHover("")}>
+                            <li><Link to="/ueber_uns"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">ÜBER UNS</a></Link></li>
+                            <li><Link to="/musikschul_team"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">MUSIKSCHUL-TEAM</a></Link></li>
+                            <li><Link to="/unterrichtsfaecher"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">UNTERRICHTSFÄCHER</a></Link></li>
+                            <li><Link to="/unterrichtsorte"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">UNTERRICHTSORTE</a></Link></li>
+                            <li><Link to="/partner"><a onClick={() => handleClick("blue")} className="b" onclick="scrollWin()">PARTNER</a></Link></li>
+                        </ul>
+                    </li>
                     <li><Link to="/kontakt"><h1 onMouseEnter={() => handleHover("yellow")} onMouseLeave={() => handleHover("")} style={hover.yellowHover || state.yellowFokus ? yellow : null} onClick={() => handleClick("yellow")}><font style={hover.yellowHover || state.yellowFokus ? font : yellowFont}>KONTAKT</font></h1></Link></li>
-            </ul>
-
+                </ul>
             </div>
-            
-            <div style={{ width: "31%" }}></div>
+
+        </div> 
+        }
         </div>
     );
 }
 
 export default _Navbar;
-

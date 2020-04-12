@@ -3,6 +3,8 @@ import { Table } from 'reactstrap';
 import Collapsible from 'react-collapsible';
 import css from "../../../css/Anmeldung.css"
 
+import axios from 'axios';
+
 import {
     Link
 } from "react-router-dom";
@@ -214,6 +216,13 @@ function Anmeldung(){
         }
     }
 
+    function handleSubmit(event)
+    {
+        event.preventDefault();
+        console.log(state)
+        axios.
+            post('')
+    }
 
     return (
         <div>
@@ -626,7 +635,7 @@ function Anmeldung(){
                 </div>
 
             <div className= "blackContainer flex">
-                    <button style={state.absenden ? style.valid : style.invalid} disabled={state.absenden} onClick={handleChange} disabled={state.absenden} className="btnSubmit">Anmeldung absenden</button>
+                    <button style={state.absenden ? style.valid : style.invalid} disabled={state.absenden} onClick={handleSubmit} disabled={state.absenden} className="btnSubmit">Anmeldung absenden</button>
             </div>
                 
             </form>
@@ -634,7 +643,6 @@ function Anmeldung(){
 
             
             <Collapsible trigger={<div className="img_text_hover" style={{ padding: "10px" }}><a style={{ color: "#E85648"}}>Probleme bei der Anmeldung?</a></div>}>
-
                     <p>
                         Bei Problemen mit dem Formular kannst du dich an emilhopf@gmail.com wenden.
                     </p>

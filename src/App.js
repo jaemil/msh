@@ -27,7 +27,7 @@ import Gebuehren from './components/pages/sekretariat/Gebuehren'
 import Schulordung from './components/pages/sekretariat/Schulordnung' 
 import Ummeldung from './components/pages/sekretariat/Ummeldung'
 import Impressum from "./components/pages/sekretariat/Impressum"
-
+import Info from "./components/pages/Info"
 
 class App extends React.Component 
 {
@@ -39,6 +39,7 @@ class App extends React.Component
         <div className="Main" >
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/info" component={Info} />
           <Route path="/impressum" component={Impressum} />
           <Route path="/kontakt" component={Kontakt} />
           <Route path="/partner" component={Partner} />
