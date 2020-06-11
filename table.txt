@@ -1,0 +1,68 @@
+CREATE TABLE schueler (
+    	ID int(11),
+	showMore tinyint(1),
+	verifyID int(11),
+	verify tinyint(1),
+	signed tinyint(1),
+
+    	schuelerVorname text,
+    	schuelerNachname text,
+    	schuelerGeburtstagTag text,
+    	schuelerGeburtstagMonat text,
+    	schuelerGeburtstagJahr text,
+
+    	schuelerNichtVollmuendig tinyint(1),
+    	erziehungsberechtigterVorname text,
+    	erziehungsberechtigterNachname text,
+
+    	schuelerStrasse text,
+    	schuelerHausnummer text,
+    	schuelerPostleitzahl int(11),
+    	schuelerOrt text,
+
+    	vollmuendigTelefon text,
+    	vollmuendigMobil text,
+    	vollmuendigEmail text,
+
+    	aktiveFamilieneMitglieder tinyint(1),
+    	schueler1 text,
+    	schueler2 text,
+    	schueler3 text,
+
+    	unterrichtsFach text,
+    	unterrichtsDauer text,
+    	unterrichtsTurnus text,
+    	unterrichtsEinheit text,
+
+    	moeglicheUnterrichtszeiten tinyint(1),
+    	montagVon text,
+    	montagBis text,
+    	dienstagVon text,
+    	dienstagBis text,
+    	mittwochVon text,
+    	mittwochBis text,
+    	donnerstagVon text,
+    	donnerstagBis text,
+    	freitagVon text,
+    	freitagBis text,
+
+    	benoetigtInstrument tinyint(1),
+    	leihInstrument text,
+
+   	sonstigeAnmerkung tinyint(1),
+   	anmerkung text,
+
+    	radioAnrede text,
+
+    	sepaVorname text,
+    	sepaNachname text,
+    	sepaStraße text,
+    	sepaHausnummer text,
+    	sepaPostleitzahl text,
+    	sepaOrt text,
+    	sepaTelefon text,
+    	sepaEmail text,
+    	sepaKreditinstitut text,
+    	sepaIBAN text,
+    	sepaBIC text
+);

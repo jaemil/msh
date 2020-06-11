@@ -1,0 +1,502 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(20, 20, 20);
+}
+
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker&display=swap");
+
+@font-face {
+  src: local("Hwyl fawr Hello"),
+    url(./fonts/Hwyl_fawr_Hello.ttf) format("truetype");
+  font-family: "Hwyl fawr Hello";
+
+  /* font-family: "Permanent Marker", cursive;
+  font-family: "Gloria Hallelujah", cursive; */
+}
+
+h2/*Ueberschrift*/ {
+  text-align: left;
+  font-family: "Hwyl fawr Hello";
+  font-size: 40px !important;
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 20px 20px -20px rgb(0, 0, 0);
+}
+
+h3/*unter Ueberschrift*/ {
+  text-align: left;
+  font-size: 25px !important;
+  font-weight: bold !important;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  box-shadow: 0 20px 0px -20px rgb(0, 0, 0);
+  background-color: transparent;
+}
+
+p {
+  color: white;
+  background-color: transparent;
+  padding: 0px 20px 0px 20px;
+}
+
+.logoText {
+  font-size: 30px;
+  font-weight: bold;
+  color: white !important;
+  background-color: black;
+  text-align: center;
+}
+
+.logoTextWraperR {
+  border-radius: 16px;
+  padding: 5px 10px 5px 10px;
+  background-color: rgb(61, 192, 151);
+  color: black !important;
+  margin: 0px 10px 0px 10px;
+}
+.logoTextWraperG {
+  border-radius: 16px;
+  padding: 5px 10px 5px 10px;
+  background-color: rgb(232, 86, 72);
+  color: black !important;
+  margin: 0px 10px 0px 10px;
+}
+.logoTextWraperO {
+  border-radius: 16px;
+  padding: 5px 10px 5px 10px;
+  background-color: rgb(233, 176, 65);
+  color: black !important;
+  margin: 0px 10px 0px 10px;
+}
+.logoTextWraperB {
+  border-radius: 16px;
+  padding: 5px 10px 5px 10px;
+  background-color: rgb(82, 173, 187);
+  color: black !important;
+  margin: 0px 10px 0px 10px;
+}
+
+.centerText {
+  background-color: black;
+  text-align: center;
+}
+
+.x0 {
+  background-color: black;
+  box-shadow: none;
+}
+
+@keyframes logoTextAnimation {
+  0% {
+    color: green;
+  }
+  50% {
+    filter: brightness(1.1) contrast(2);
+  }
+  100% {
+    color: red;
+  }
+}
+
+/*Custom Scrollbar*/
+body::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 50px;
+}
+/*Custom Scrollbar*/
+
+.handle {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.75);
+
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.handle p {
+  font-size: 25px;
+  font-family: "Gloria Hallelujah";
+  font-weight: bolder;
+  text-decoration: none !important;
+  color: black !important;
+  line-height: 0.1;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.gImg {
+  background: linear-gradient(
+    to right,
+    rgb(61, 192, 151) 00%,
+    rgb(61, 192, 70) 100%
+  );
+  background-image: url("../src/img/home/blume.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.rImg {
+  background: linear-gradient(
+    to right,
+    rgb(232, 86, 72) 00%,
+    rgb(194, 92, 52) 100%
+  );
+}
+
+.bImg {
+  background: linear-gradient(
+    to right,
+    rgb(82, 173, 187) 00%,
+    rgb(82, 101, 187) 100%
+  );
+  background-image: url("../src/img/home/circle.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.oImg {
+  background: linear-gradient(
+    to right,
+    rgb(233, 176, 65) 00%,
+    rgb(166, 233, 65) 100%
+  );
+}
+
+.blackContainer2 {
+  background-color: rgb(0, 0, 0) !important;
+  padding: 20px 20px 10px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  position: relative;
+
+  width: 1150px;
+  height: 600px;
+}
+
+.homeImg {
+  position: absolute;
+  top: 200px;
+  opacity: 0.2;
+  background-image: url("../src/img/Banner.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  border-radius: 20px;
+  border: 0px !important;
+}
+
+.partnerImgCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blackContainer {
+  background-color: rgb(0, 0, 0) !important;
+  padding: 20px 20px 10px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.BueroText {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 25px;
+  background-color: transparent;
+}
+
+.UnterrichtsfächerImg {
+  width: 15%;
+  margin: 1%;
+  padding: 1%;
+  background-color: black;
+  border-radius: 20px;
+}
+
+.UnterrichtsfächerImgSelected {
+  width: 15%;
+  margin: 1%;
+  padding: 1%;
+  background-color: rgb(35, 35, 35);
+  border-radius: 20px;
+}
+
+.UnterrichtsfächerImg:hover {
+  background-color: rgb(35, 35, 35);
+}
+
+@media only screen and (max-width: 991px) /*Mobile Ansicht*/ {
+  .Main {
+    padding: 2% 5% 0% 5%;
+    z-index: -100;
+  }
+
+  .gallery {
+    padding-left: 0%;
+  }
+
+  /*Page: Fragen Antworten*/
+  .Collapsible {
+    margin: 10px 10px 10px 10px;
+    background-color: rgb(25, 25, 25);
+    border-radius: 20px 20px 20px 20px;
+  }
+
+  .Collapsible__trigger {
+    font-size: 18px;
+    font-weight: normal;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  .Collapsible__contentOuter {
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  .Collapsible__contentInner {
+    font-weight: lighter;
+    text-align: left;
+    color: white;
+    background-color: rgb(25, 25, 25);
+    padding: 10px 20px 10px 20px;
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  .img_text_hover {
+    background-color: rgb(15, 15, 15);
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  /*Page: Fragen Antworten*/
+}
+
+@media only screen and (min-width: 992px) /*destop*/ {
+  .Main {
+    padding: 2% 20% 0% 20%;
+    z-index: -100;
+  }
+
+  .gallery {
+    padding-left: 0%;
+    margin-left: 6%;
+    margin-right: 0%;
+  }
+
+  /*Page: Fragen Antworten*/
+  .Collapsible {
+    margin: 10px 10px 10px 10px;
+    background-color: rgb(35, 35, 35);
+    border-radius: 20px 20px 20px 20px;
+  }
+
+  .Collapsible:hover {
+    background-color: rgb(35, 35, 35);
+  }
+
+  .Collapsible__trigger {
+    font-size: 18px;
+    font-weight: normal;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  .Collapsible__contentOuter {
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  .Collapsible__contentInner {
+    font-weight: lighter;
+    text-align: justify;
+    color: white;
+    background-color: rgb(35, 35, 35);
+    padding: 10px 20px 10px 20px;
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  .img_text_hover {
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .img_text_hover:hover {
+    background-color: rgb(35, 35, 35);
+  }
+  /*Page: Fragen Antworten*/
+}
+
+/* Admin Panel */
+.studentList {
+  background-color: black;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 10px;
+
+  font-size: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr) 10fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-items: center;
+  justify-items: center;
+}
+
+.showMore {
+  background-color: transparent;
+  color: white !important;
+  cursor: pointer;
+}
+
+.showMore180 {
+  background-color: transparent;
+  color: white !important;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+
+.separate {
+  border-left: 2px solid #1f1f1f;
+  height: 20px;
+  border-radius: 200px;
+}
+
+.name {
+  justify-self: self-start;
+  padding-left: 10px;
+}
+
+.remove {
+  background-color: transparent;
+  color: rgb(232, 86, 72);
+  cursor: pointer;
+  display: inline-block;
+  transform: rotate(45deg) !important;
+}
+
+.remove:hover {
+  animation-name: remove;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes remove {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+.sendMail {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.checkMail {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.sign {
+  font-size: 17px;
+  background-color: transparent;
+  color: rgb(232, 86, 72);
+  cursor: pointer;
+}
+
+.signed {
+  font-size: 17px;
+  background-color: transparent;
+  color: rgb(61, 192, 151);
+  cursor: pointer;
+}
+
+.mailAccepted {
+  color: rgb(61, 192, 151);
+  background-color: transparent;
+}
+
+.pdf {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.signed:hover,
+.sign:hover,
+.mailAccepted:hover,
+.sendMail:hover,
+.pdf:hover {
+  animation-name: sign;
+  animation-duration: 1s;
+
+  animation-iteration-count: infinite;
+}
+
+@keyframes sign {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+  60% {
+    transform: rotate(15deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+}
+
+/* LOGIN MODAL */
+.modal {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 20px;
+}
+
+.loginInput {
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: black;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+}
+
+.loginButton {
+  margin-top: 80px;
+}
+
+.loginButton:hover {
+  margin-top: 80px;
+  font-weight: bold;
+}
