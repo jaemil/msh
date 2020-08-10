@@ -144,7 +144,7 @@ body::-webkit-scrollbar-thumb {
     rgb(61, 192, 151) 00%,
     rgb(61, 192, 70) 100%
   );
-  background-image: url("../src/img/home/blume.png");
+
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -164,7 +164,7 @@ body::-webkit-scrollbar-thumb {
     rgb(82, 173, 187) 00%,
     rgb(82, 101, 187) 100%
   );
-  background-image: url("../src/img/home/circle.png");
+
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -184,7 +184,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
   margin-top: 20px;
   position: relative;
-
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
   width: 1150px;
   height: 600px;
 }
@@ -213,6 +213,7 @@ body::-webkit-scrollbar-thumb {
   padding: 20px 20px 10px 20px;
   border-radius: 20px;
   margin-top: 20px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
 }
 
 .BueroText {
@@ -228,6 +229,8 @@ body::-webkit-scrollbar-thumb {
   padding: 1%;
   background-color: black;
   border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
 }
 
 .UnterrichtsfächerImgSelected {
@@ -236,10 +239,13 @@ body::-webkit-scrollbar-thumb {
   padding: 1%;
   background-color: rgb(35, 35, 35);
   border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
 }
 
 .UnterrichtsfächerImg:hover {
   background-color: rgb(35, 35, 35);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
 }
 
 @media only screen and (max-width: 991px) /*Mobile Ansicht*/ {
@@ -285,6 +291,7 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(15, 15, 15);
     border-radius: 20px;
     padding: 10px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
   }
 
   /*Page: Fragen Antworten*/
@@ -339,10 +346,12 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(0, 0, 0);
     border-radius: 20px;
     padding: 10px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
   }
 
   .img_text_hover:hover {
     background-color: rgb(35, 35, 35);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
   }
   /*Page: Fragen Antworten*/
 }
@@ -357,7 +366,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 20px;
 
   display: grid;
-  grid-template-columns: repeat(2, 0.5fr) 10fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-columns: repeat(2, 0.5fr) 10fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -446,6 +455,15 @@ body::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 
+.msvplus {
+  border: none;
+  background-color: rgb(10, 10, 10);
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 16px;
+}
+
 .signed:hover,
 .sign:hover,
 .mailAccepted:hover,
@@ -499,4 +517,17 @@ body::-webkit-scrollbar-thumb {
 .loginButton:hover {
   margin-top: 80px;
   font-weight: bold;
+}
+
+.MapIcon {
+  text-decoration: none;
+}
+
+.MapIcon:visited {
+  color: white;
+}
+
+
+.horizontalHr{
+
 }

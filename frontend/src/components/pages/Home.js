@@ -1,8 +1,6 @@
 import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import TextLoop from "react-text-loop";
-// import AnimatedButton from "react-animated-buttons";
-// import Explosion from "react-explode/Boracay";
 import logo from "../../img/logo.png";
 
 function Home() {
@@ -50,14 +48,9 @@ function Home() {
             margin: "30px 10px 30px 10px",
           }}
         >
-          {/* <AnimatedButton
-            animationDuration={1}
-            animationType="pulse"
-            color="#181818"
-            textColor="white"
-          >
-            Jetzt Anmelden
-          </AnimatedButton> */}
+          <Link to="anmeldung">
+            <button>Jetzt Anmelden</button>
+          </Link>
         </div>
       </div>
     </div>

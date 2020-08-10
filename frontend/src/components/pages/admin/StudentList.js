@@ -23,6 +23,8 @@ function StudentList() {
     visible: true,
   });
 
+  const [msvplus, setMsvplus] = useState(true);
+
   function closeModal() {
     setLogin((prevState) => ({
       ...prevState,
@@ -36,7 +38,6 @@ function StudentList() {
       ...prevState,
       [name]: value,
     }));
-    console.log(login);
   }
 
   const [state2, setState2] = useState();
@@ -49,13 +50,12 @@ function StudentList() {
       })
       .then((res) => {
         setState2(res.data);
-        //console.log(res.data);
+
         closeModal();
       })
       .catch((e) => {
         console.log(e);
       });
-    //console.log(state2);
   }
 
   function getSchuelerByID(id) {
@@ -65,9 +65,7 @@ function StudentList() {
         password: login.password,
         ID: id,
       })
-      .then((res) => {
-        console.log(res.data);
-      })
+      .then((res) => {})
       .catch((e) => {
         console.log(e);
       });
@@ -99,7 +97,23 @@ function StudentList() {
       })
       .then((res) => {
         getSchueler();
-        console.log(state2);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  function nightwatch(id) {
+    setMsvplus(false);
+
+    axios
+      .post(`http://localhost:4000/nightwatch`, {
+        username: login.username,
+        password: login.password,
+        ID: id,
+      })
+      .then((res) => {
+        setMsvplus(res.data);
       })
       .catch((e) => {
         console.log(e);
@@ -161,7 +175,6 @@ function StudentList() {
       })
       .then((res) => {
         getSchueler();
-        console.log(state2);
       })
       .catch((e) => {
         console.log(e);
@@ -232,6 +245,15 @@ function StudentList() {
                       data-tip="PDF anzeigen"
                       onClick={() => getPdf(index)}
                     />
+                    <a className="separate"></a>
+                    <button
+                      disabled={!msvplus}
+                      className="msvplus"
+                      data-tip="MSVPlus"
+                      onClick={() => nightwatch(index + 1)}
+                    >
+                      MSVPlus
+                    </button>
                     <a className="separate"></a>
                     <FaPlus
                       className="remove"

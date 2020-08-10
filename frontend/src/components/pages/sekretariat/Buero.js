@@ -1,87 +1,189 @@
-import React, { Component } from 'react'
-import { Table } from 'reactstrap';
-import Gallery from 'react-grid-gallery';
-
-import Johannes from "../../../img/Lehrer/3_Johannes_05.jpg"
-import Biggi from "../../../img/Lehrer/8_Biggi_08.jpg"
+import React, { Component } from "react";
+import { Table } from "reactstrap";
+import Gallery from "react-grid-gallery";
+import { isMobile } from "react-device-detect";
+import Johannes from "../../../img/Lehrer/3_Johannes_05.jpg";
+import Biggi from "../../../img/Lehrer/8_Biggi_08.jpg";
 
 export default class Buero extends Component {
-    render() {
+  render() {
+    return (
+      <div>
+        <h2 className="r">Büro</h2>
+        <br />
 
-        var IMAGES =
-            [
-                {
-                    src: Biggi,
-                    thumbnail: Biggi,
-                    caption: "Biggi"
-                },
-            {
-                src: Johannes,
-                thumbnail: Johannes,
-                caption: "Johannes"
-            }
-                
-            ]
-
-        return (
-            <div>
-
-            <Table>
-            
-            </Table>
-                <h2 className="r">Büro</h2>
-                <br />
-                <div className="blackContainer" style ={{overflow: "auto"}}>
-                <img style ={{float: "left", width: "30%", display: "inline", paddingLeft: "20px", paddingRight: "40px", backgroundColor: "black"}} src = {Biggi}></img>
-                <Table borderless dark style={{ width: "70%", paddingLeft: "120px"}}>
-                                <tbody>
-                                    <tr>
-                                        <td className="r" style={{fontWeight: "bold"}}>Sekretärin:</td>
-                                        <td>Birgit Ollhäuser</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Ist für euch da, wenn es um Bürokratie <br />(Formelles, Finanzen, Einzüge etc.)<br />oder um Informationen rund um die Musikschule geht.</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="r" style={{fontWeight: "bold"}}>Bürozeiten:</td>
-                                        <td>Montag und Dienstag <br />9.00 Uhr - 15.00 Uhr. <br />In den Schulferien ist das Büro nur gelegentlich geöffnet. </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="r" style={{fontWeight: "bold"}}>Telefon:</td>
-                                        <td>07021 – 482 797</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="r" style={{fontWeight: "bold"}}>E-Mail:</td>
-                                        <td>info@musikschule-hopf.de</td>
-                                    </tr>
-                                </tbody>
-                            </Table></div>
-
-                <div className= "blackContainer" style= {{marginTop: "20px", overflow: "auto"}}>
-                <img style ={{float: "right", width: "30%", display: "inline", paddingLeft: "20px", paddingRight: "0px", backgroundColor: "black"}} src = {Johannes}></img>
-                            
-
-                            <Table borderless dark style={{ width: "70%", paddingLeft: "120px" }}>
-                                <tbody>
-                                    <tr>
-                                        <td className="r" style={{fontWeight: "bold"}}>Geschäftsführer:</td>
-                                        <td>Johannes Hopf</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="r" style={{fontWeight: "bold"}}>Bürozeiten:</td>
-                                        <td>Montag bis Donnerstag<br />Vormittags spontan oder nach Absprache.<br />Schnelle Kommunikation per Mail!!!</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Ist für euch da, wenn es um Informationen zum Unterricht <br />(Lehrkräfte/Lehrkonzepte), <br />Geschäftspartner-/ Patenschaften etc.<br /> und allgemeines über die Musikschule geht.</td>
-                                    </tr>
-                                </tbody>
-                            </Table></div>
-                
-
-                
+        <div
+          className="blackContainer"
+          style={
+            isMobile
+              ? {
+                  display: "grid",
+                  gridTemplateColumns: "1fr",
+                  gridTemplateRows: "0fr",
+                  gridRowGap: "0px",
+                  gridColumnGap: "0px",
+                  color: "white",
+                }
+              : {
+                  display: "grid",
+                  gridTemplateColumns: "0.4fr 1fr",
+                  gridTemplateRows: "repeat(2, 1fr)",
+                  gridRowGap: "20px",
+                  gridColumnGap: "20px",
+                  color: "white",
+                }
+          }
+        >
+          <div style={{ backgroundColor: "black" }}>
+            <img
+              style={{
+                borderRadius: "20px",
+                objectFit: "cover",
+                width: "100%",
+                maxHeight: "100%",
+                backgroundColor: "black",
+              }}
+              src={Biggi}
+            ></img>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "0.5fr 1fr",
+              gridTemplateRows: "repeat(5, 1fr)",
+              backgroundColor: "black",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "black",
+                color: "#E85648",
+                fontWeight: "bold",
+              }}
+            >
+              Sekretärin:
             </div>
-        )
-    }
+            <div style={{ backgroundColor: "black" }}>Birgit Ollhäuser</div>
+            <div
+              style={{ backgroundColor: "black", gridArea: "2 / 2 / 3 / 3" }}
+            >
+              Ist für euch da, wenn es um Bürokratie (Formelles, Finanzen,
+              Einzüge etc.) oder um Informationen rund um die Musikschule geht.
+            </div>
+            <div
+              style={{
+                backgroundColor: "black",
+                gridArea: "3 / 1 / 4 / 2",
+                color: "#E85648",
+                fontWeight: "bold",
+              }}
+            >
+              Bürozeiten:
+            </div>
+            <div
+              style={{ backgroundColor: "black", gridArea: "3 / 2 / 4 / 3" }}
+            >
+              Montag und Dienstag 9.00 Uhr - 15.00 Uhr. In den Schulferien ist
+              das Büro nur gelegentlich geöffnet.
+            </div>
+            <div
+              style={{
+                backgroundColor: "black",
+                gridArea: "4 / 1 / 5 / 2",
+                color: "#E85648",
+                fontWeight: "bold",
+              }}
+            >
+              Telefon:
+            </div>
+            <div
+              style={{ backgroundColor: "black", gridArea: "4 / 2 / 5 / 3" }}
+            >
+              {" "}
+              07021 – 482 797
+            </div>
+            <div
+              style={{
+                backgroundColor: "black",
+                gridArea: "5 / 1 / 6 / 2",
+                color: "#E85648",
+                fontWeight: "bold",
+              }}
+            >
+              E-Mail:
+            </div>
+            <div
+              style={{ backgroundColor: "black", gridArea: "5 / 2 / 6 / 3" }}
+            >
+              info@musikschule-hopf.de
+            </div>
+          </div>
+          <div style={{ backgroundColor: "black" }}>
+            <img
+              style={{
+                borderRadius: "20px",
+                objectFit: "cover",
+                width: "100%",
+                maxHeight: "100%",
+              }}
+              src={Johannes}
+            ></img>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "0.5fr 1fr",
+              gridTemplateRows: "repeat(5, 1fr)",
+              backgroundColor: "black",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "black",
+                color: "#E85648",
+                fontWeight: "bold",
+              }}
+            >
+              Geschäftsführer:
+            </div>
+            <div
+              style={{
+                backgroundColor: "black",
+              }}
+            >
+              Johannes Hopf
+            </div>
+            <div
+              style={{
+                backgroundColor: "black",
+                color: "#E85648",
+                fontWeight: "bold",
+              }}
+            >
+              Bürozeiten:
+            </div>
+            <div
+              style={{
+                backgroundColor: "black",
+              }}
+            >
+              Montag bis Donnerstag Vormittags spontan oder nach Absprache.
+              Schnelle Kommunikation per Mail!!!
+            </div>
+            <div
+              style={{ gridArea: "3 / 2 / 4 / 3", backgroundColor: "black" }}
+            >
+              Ist für euch da, wenn es um Informationen zum Unterricht
+              (Lehrkräfte/Lehrkonzepte), Geschäftspartner-/ Patenschaften etc.
+              und allgemeines über die Musikschule geht.
+            </div>
+          </div>
+        </div>
+
+        <hr className="horizontalHr"></hr>
+      </div>
+    );
+  }
 }

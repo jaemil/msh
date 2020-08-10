@@ -28,6 +28,7 @@ import Ummeldung from "./components/pages/sekretariat/Ummeldung";
 import Impressum from "./components/pages/sekretariat/Impressum";
 import Info from "./components/pages/Info";
 import StudentList from "./components/pages/admin/StudentList";
+import VerifyAnmeldung from "./components/pages/VerifyAnmeldung";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/schulordnung" component={Schulordung} />
           <Route path="/ummeldung" component={Ummeldung} />
           <Route path="/admin" component={StudentList} />
+          <Route path="/verify" component={VerifyAnmeldung} />
         </Switch>
       </div>
 

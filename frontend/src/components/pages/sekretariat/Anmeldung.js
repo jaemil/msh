@@ -7,6 +7,7 @@ import axios from "axios";
 import qs from "qs";
 import IBAN from "iban";
 import { Link } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 
 const ibantools = require("ibantools");
 
@@ -199,61 +200,68 @@ function Anmeldung() {
     axios.post(`http://localhost:4000/neu`, { state });
   }
 
-  // useEffect(() => {
-  //   if (
-  //     state.schuelerVorname.length > 0 &&
-  //     state.schuelerNachname.length > 0 &&
-  //     number2Format.test(state.schuelerGeburtstagTag) &&
-  //     number2Format.test(state.schuelerGeburtstagMonat) &&
-  //     number4Format.test(state.schuelerGeburtstagJahr) &&
-  //     state.schuelerStrasse.length > 0 &&
-  //     state.schuelerHausnummer.length > 0 &&
-  //     number5Format.test(state.schuelerPostleitzahl) &&
-  //     state.schuelerOrt.length > 0 &&
-  //     state.vollmuendigTelefon.length > 0 &&
-  //     state.vollmuendigMobil.length > 0 &&
-  //     emailFormat.test(state.vollmuendigEmail) &&
-  //     state.unterrichtsFach.length > 0 &&
-  //     state.unterrichtsFach != "Bitte auswählen" &&
-  //     state.unterrichtsDauer.length > 0 &&
-  //     state.unterrichtsDauer != "Bitte auswählen" &&
-  //     state.unterrichtsTurnus.length > 0 &&
-  //     state.unterrichtsTurnus != "Bitte auswählen" &&
-  //     state.unterrichtsEinheit.length > 0 &&
-  //     state.unterrichtsEinheit != "Bitte auswählen" &&
-  //     (state.radioAnrede == "sepaFrau" || state.radioAnrede == "sepaMann") &&
-  //     state.sepaVorname.length > 0 &&
-  //     state.sepaNachname.length > 0 &&
-  //     state.sepaStraße.length > 0 &&
-  //     state.sepaHausnummer.length > 0 &&
-  //     number5Format.test(state.sepaPostleitzahl) &&
-  //     state.sepaOrt.length > 0 &&
-  //     state.sepaTelefon.length > 0 &&
-  //     emailFormat.test(state.sepaEmail) &&
-  //     state.sepaKreditinstitut.length > 0 &&
-  //     IBAN.isValid(state.sepaIBAN) &&
-  //     ibantools.isValidBIC(state.sepaBIC)
-  //   ) {
-  //     if (
-  //       state.schuelerNichtVollmuendig &&
-  //       state.erziehungsberechtigterVorname.length > 0 &&
-  //       state.erziehungsberechtigterNachname.length > 0
-  //     ) {
-  //     }
+  useEffect(() => {
+    if (
+      state.schuelerVorname.length > 0 &&
+      state.schuelerNachname.length > 0 &&
+      number2Format.test(state.schuelerGeburtstagTag) &&
+      number2Format.test(state.schuelerGeburtstagMonat) &&
+      number4Format.test(state.schuelerGeburtstagJahr) &&
+      state.schuelerStrasse.length > 0 &&
+      state.schuelerHausnummer.length > 0 &&
+      number5Format.test(state.schuelerPostleitzahl) &&
+      state.schuelerOrt.length > 0 &&
+      state.vollmuendigTelefon.length > 0 &&
+      //     state.vollmuendigMobil.length > 0 &&
+      emailFormat.test(state.vollmuendigEmail) &&
+      state.unterrichtsFach.length > 0 &&
+      state.unterrichtsFach != "Bitte auswählen" &&
+      state.unterrichtsDauer.length > 0 &&
+      state.unterrichtsDauer != "Bitte auswählen" &&
+      state.unterrichtsTurnus.length > 0 &&
+      state.unterrichtsTurnus != "Bitte auswählen" &&
+      state.unterrichtsEinheit.length > 0 &&
+      state.unterrichtsEinheit != "Bitte auswählen" &&
+      (state.radioAnrede == "sepaFrau" || state.radioAnrede == "sepaMann") &&
+      state.sepaVorname.length > 0 &&
+      state.sepaNachname.length > 0 &&
+      state.sepaStraße.length > 0 &&
+      state.sepaHausnummer.length > 0 &&
+      number5Format.test(state.sepaPostleitzahl) &&
+      state.sepaOrt.length > 0 &&
+      state.sepaTelefon.length > 0 &&
+      emailFormat.test(state.sepaEmail) &&
+      state.sepaKreditinstitut.length > 0 &&
+      IBAN.isValid(state.sepaIBAN) &&
+      ibantools.isValidBIC(state.sepaBIC)
+    ) {
+      // if (
+      //   state.schuelerNichtVollmuendig &&
+      //   state.erziehungsberechtigterVorname.length > 0 &&
+      //   state.erziehungsberechtigterNachname.length > 0
+      // ) {
+      // }
 
-  //     if (
-  //       state.benoetigtInstrument &&
-  //       state.leihInstrument.length > 0 &&
-  //       state.leihInstrument != "Bitte auswählen"
-  //     ) {
-  //     }
+      // if (
+      //   state.benoetigtInstrument &&
+      //   state.leihInstrument.length > 0 &&
+      //   state.leihInstrument != "Bitte auswählen"
+      // ) {
+      // }
 
-  //     setState((prevState) => ({ ...prevState, absenden: true }));
-  //     console.log(true);
-  //   } else {
-  //     setState((prevState) => ({ ...prevState, absenden: false }));
-  //   }
-  // }, [state]);
+      const timer = setTimeout(
+        () => setState((prevState) => ({ ...prevState, absenden: true })),
+        0
+      );
+      return () => clearTimeout(timer);
+    } else {
+      const timer = setTimeout(
+        () => setState((prevState) => ({ ...prevState, absenden: false })),
+        0
+      );
+      return () => clearTimeout(timer);
+    }
+  }, [state]);
 
   return (
     <div>
@@ -267,7 +275,7 @@ function Anmeldung() {
             <input
               checked={state.info}
               className="anmeldungCheckbox"
-              onClick={handleChange}
+              onChange={handleChange}
               name="info"
               type="checkbox"
             />
@@ -323,7 +331,7 @@ function Anmeldung() {
               <span
                 style={{ backgroundColor: "black", color: "rgb(232, 86, 72)" }}
               >
-                orange markierten Felder
+                rot markierten Felder
               </span>{" "}
               ausfüllen! Auf den "Absenden"-Button kann erst geklickt werden,
               wenn alle erfolderlichen Felder nach Eingabe der erforderlichen
@@ -383,9 +391,27 @@ function Anmeldung() {
           <label>Geburtstdatum:</label>
           <input
             style={
-              number2Format.test(state.schuelerGeburtstagTag)
-                ? style.valid
-                : style.invalid
+              isMobile
+                ? number2Format.test(state.schuelerGeburtstagTag)
+                  ? {
+                      borderColor: "rgb(61, 192, 151)",
+                      borderStyle: "solid",
+                      width: "50px",
+                    }
+                  : {
+                      borderColor: "rgb(232, 86, 72)",
+                      borderStyle: "solid",
+                      width: "50px",
+                    }
+                : number2Format.test(state.schuelerGeburtstagTag)
+                ? {
+                    borderColor: "rgb(61, 192, 151)",
+                    borderStyle: "solid",
+                  }
+                : {
+                    borderColor: "rgb(232, 86, 72)",
+                    borderStyle: "solid",
+                  }
             }
             type="text"
             value={state.schuelerGeburtstagTag}
@@ -397,9 +423,27 @@ function Anmeldung() {
           />
           <input
             style={
-              number2Format.test(state.schuelerGeburtstagMonat)
-                ? style.valid
-                : style.invalid
+              isMobile
+                ? number2Format.test(state.schuelerGeburtstagMonat)
+                  ? {
+                      borderColor: "rgb(61, 192, 151)",
+                      borderStyle: "solid",
+                      width: "50px",
+                    }
+                  : {
+                      borderColor: "rgb(232, 86, 72)",
+                      borderStyle: "solid",
+                      width: "50px",
+                    }
+                : number2Format.test(state.schuelerGeburtstagMonat)
+                ? {
+                    borderColor: "rgb(61, 192, 151)",
+                    borderStyle: "solid",
+                  }
+                : {
+                    borderColor: "rgb(232, 86, 72)",
+                    borderStyle: "solid",
+                  }
             }
             type="text"
             value={state.schuelerGeburtstagMonat}
@@ -411,9 +455,27 @@ function Anmeldung() {
           />
           <input
             style={
-              number4Format.test(state.schuelerGeburtstagJahr)
-                ? style.valid
-                : style.invalid
+              isMobile
+                ? number4Format.test(state.schuelerGeburtstagJahr)
+                  ? {
+                      borderColor: "rgb(61, 192, 151)",
+                      borderStyle: "solid",
+                      width: "50px",
+                    }
+                  : {
+                      borderColor: "rgb(232, 86, 72)",
+                      borderStyle: "solid",
+                      width: "50px",
+                    }
+                : number4Format.test(state.schuelerGeburtstagJahr)
+                ? {
+                    borderColor: "rgb(61, 192, 151)",
+                    borderStyle: "solid",
+                  }
+                : {
+                    borderColor: "rgb(232, 86, 72)",
+                    borderStyle: "solid",
+                  }
             }
             type="text"
             value={state.schuelerGeburtstagJahr}
@@ -1133,7 +1195,7 @@ function Anmeldung() {
                 type="radio"
                 value="sepaMann"
               />
-              Mann
+              Herr
             </label>
           </label>
           <br />
@@ -1299,16 +1361,36 @@ function Anmeldung() {
           </p>
         </div>
 
-        <div className="blackContainer flex">
-          <button
-            style={state.absenden ? style.valid : style.invalid}
-            disabled={state.absenden}
-            onClick={handleSubmit}
-            disabled={state.absenden}
-            className="btnSubmit"
-          >
-            Anmeldung absenden
-          </button>
+        <div className="blackContainer">
+          <div className="blackContainer flex" style={{ marginTop: "-15px" }}>
+            <button
+              style={state.absenden ? style.valid : style.invalid}
+              onClick={handleSubmit}
+              disabled={state.absenden}
+              className="btnSubmit"
+            >
+              Anmeldung absenden
+            </button>
+          </div>
+          <p style={{ fontWeight: "bold" }}>
+            Bitte alle{" "}
+            <span
+              style={{ backgroundColor: "black", color: "rgb(232, 86, 72)" }}
+            >
+              rot markierten Felder
+            </span>{" "}
+            ausfüllen! Auf den "Absenden"-Button kann erst geklickt werden, wenn
+            alle erfolderlichen Felder nach Eingabe der erforderlichen Daten{" "}
+            <span
+              style={{
+                backgroundColor: "black",
+                color: "rgb(61, 192, 151)",
+              }}
+            >
+              grün
+            </span>{" "}
+            sind!
+          </p>
         </div>
       </form>
 

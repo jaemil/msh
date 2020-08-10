@@ -7,6 +7,9 @@ var app = express();
 var sendMail = require("./script/mail");
 var sqlCon = require("./script/sql");
 
+const pdf = require("html-pdf");
+const pdfTemplate = require("./documents/");
+
 const adminRoute = require("./route/adminRoute");
 
 app.use(bodyParser.json());
@@ -32,16 +35,16 @@ app.post("/neu", function (req, res) {
     //Update ID Count
     let updateRow = `SET @position:=0; update schueler set ID=@position:=@position+1`;
     con.query(updateRow);
-  });
 
-  sendMail(
-    "emilhopf@gmail.com",
-    req.body.state.schuelerVorname + " " + req.body.state.schuelerNachname,
-    verifyID
-  );
+    sendMail(
+      req.body.state.sepaEmail,
+      req.body.state.schuelerVorname + " " + req.body.state.schuelerNachname,
+      verifyID
+    );
+  });
 });
 
-app.get("/verify", function (req, res) {
+app.post("/verify", function (req, res) {
   con.query(`SELECT verifyID FROM schueler`, function (err, result, fields) {
     if (err) throw err;
     for (i = 0; i < result.length; i++) {
@@ -54,10 +57,27 @@ app.get("/verify", function (req, res) {
       }
     }
   });
+  con.query(
+    `SELECT * FROM schueler WHERE verifyID = ${req.query.ID}`,
+    function (err, result, fields) {
+      if (err) throw err;
+      res.send(result[i]);
+    }
+  );
 });
 
 app.get("/fetch-pdf", (req, res) => {
   res.sendFile(`${__dirname}/result.pdf`);
+});
+
+app.post("/create-pdf", (req, res) => {
+  pdf.create(pdfTemplate(req.body), {}).toFile("result.pdf", (err) => {
+    if (err) {
+      res.send(Promise.reject());
+    }
+
+    res.send(Promise.resolve());
+  });
 });
 
 app.use(adminRoute);

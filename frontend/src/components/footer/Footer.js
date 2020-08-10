@@ -1,27 +1,12 @@
 import React, { Component } from "react";
 
-import Andreas from "../../img/Lehrer2/Andreas_01.jpg";
-import Davide from "../../img/Lehrer2/Davide_02.jpg";
-import Felix from "../../img/Lehrer2/Felix_02.jpg";
-import Hannes from "../../img/Lehrer2/Hannes_03.jpg";
-import Heike from "../../img/Lehrer2/Heike_06.jpg";
-import Johannes from "../../img/Lehrer2/Johannes_12.jpg";
-import Josua from "../../img/Lehrer2/Josua_04.jpg";
-import Sarah from "../../img/Lehrer2/Sarah_01.jpg";
-import Thomas from "../../img/Lehrer2/Thomas_06.jpg";
-import Timo from "../../img/Lehrer2/Timo_02.jpg";
-import Wolle from "../../img/Lehrer2/Wolle_02.jpg";
-import Yvonne from "../../img/Lehrer2/Yvonne_05.jpg";
-import Sean from "../../img/Lehrer2/Sean_01.jpg";
-import Sofia from "../../img/Lehrer2/Sofia_01.jpg";
-
 import { Link } from "react-router-dom";
 
 export default class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <div className="blackContainer">
+        <div>
           <div
             style={{
               display: "flex",
@@ -121,19 +106,27 @@ export default class Footer extends Component {
             </a>
             ·
             <Link to="/impressum" style={{}}>
-              <a
-                style={{ margin: "0px 10px 0px 10px", textDecoration: "none" }}
+              <div
+                style={{
+                  margin: "0px 10px 0px 10px",
+                  textDecoration: "none",
+                  display: "inline-block",
+                }}
               >
                 Impressum
-              </a>
+              </div>
             </Link>
             ·
             <Link to="/datenschutz" style={{ textDecoration: "none" }}>
-              <a
-                style={{ margin: "0px 10px 0px 10px", textDecoration: "none" }}
+              <div
+                style={{
+                  margin: "0px 10px 0px 10px",
+                  textDecoration: "none",
+                  display: "inline-block",
+                }}
               >
                 Datenschutz
-              </a>
+              </div>
             </Link>
           </p>
         </div>
