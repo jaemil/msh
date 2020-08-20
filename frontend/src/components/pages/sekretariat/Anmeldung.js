@@ -867,9 +867,6 @@ function Anmeldung() {
             <div style={{ backgroundColor: "black" }}>
               <label>Montag:</label>
               <input
-                style={
-                  timeFormat.test(state.montagVon) ? style.valid : style.invalid
-                }
                 value={state.montagVon}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -879,9 +876,6 @@ function Anmeldung() {
                 maxLength={5}
               />
               <input
-                style={
-                  timeFormat.test(state.montagBis) ? style.valid : style.invalid
-                }
                 value={state.montagBis}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -893,11 +887,6 @@ function Anmeldung() {
               <br />
               <label>Dienstag:</label>
               <input
-                style={
-                  timeFormat.test(state.dienstagVon)
-                    ? style.valid
-                    : style.invalid
-                }
                 value={state.dienstagVon}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -907,11 +896,6 @@ function Anmeldung() {
                 maxLength={5}
               />
               <input
-                style={
-                  timeFormat.test(state.dienstagBis)
-                    ? style.valid
-                    : style.invalid
-                }
                 value={state.dienstagBis}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -923,11 +907,6 @@ function Anmeldung() {
               <br />
               <label>Mittwoch:</label>
               <input
-                style={
-                  timeFormat.test(state.mittwochVon)
-                    ? style.valid
-                    : style.invalid
-                }
                 value={state.mittwochVon}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -937,11 +916,6 @@ function Anmeldung() {
                 maxLength={5}
               />
               <input
-                style={
-                  timeFormat.test(state.mittwochBis)
-                    ? style.valid
-                    : style.invalid
-                }
                 value={state.mittwochBis}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -953,11 +927,6 @@ function Anmeldung() {
               <br />
               <label>Donnerstag:</label>
               <input
-                style={
-                  timeFormat.test(state.donnerstagVon)
-                    ? style.valid
-                    : style.invalid
-                }
                 value={state.donnerstagVon}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -967,11 +936,6 @@ function Anmeldung() {
                 maxLength={5}
               />
               <input
-                style={
-                  timeFormat.test(state.donnerstagBis)
-                    ? style.valid
-                    : style.invalid
-                }
                 value={state.donnerstagBis}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -983,11 +947,6 @@ function Anmeldung() {
               <br />
               <label>Freitag:</label>
               <input
-                style={
-                  timeFormat.test(state.freitagVon)
-                    ? style.valid
-                    : style.invalid
-                }
                 value={state.freitagVon}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"
@@ -997,11 +956,6 @@ function Anmeldung() {
                 maxLength={5}
               />
               <input
-                style={
-                  timeFormat.test(state.freitagBis)
-                    ? style.valid
-                    : style.invalid
-                }
                 value={state.freitagBis}
                 onChange={handleChange}
                 className="anmeldungInputTextSmall"

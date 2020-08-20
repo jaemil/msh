@@ -45,6 +45,8 @@ const _Navbar = (props) => {
       handleClick("blue");
     } else if (location === "/kontakt") {
       handleClick("yellow");
+    } else {
+      handleClick("");
     }
   }, [location]);
 
@@ -149,6 +151,15 @@ const _Navbar = (props) => {
           redFokus: false,
           blueFokus: false,
           yellowFokus: true,
+        });
+        break;
+      }
+      default: {
+        setState({
+          greenFokus: false,
+          redFokus: false,
+          blueFokus: false,
+          yellowFokus: false,
         });
         break;
       }
@@ -304,6 +315,13 @@ const _Navbar = (props) => {
                       <Link to="/ummeldung">
                         <a className="r" onclick="scrollWin()">
                           UMMELDUNG
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/vertragsaenderungen">
+                        <a className="r" onclick="scrollWin()">
+                          VERTRAGSÄNDERUNGEN
                         </a>
                       </Link>
                     </li>
@@ -491,6 +509,13 @@ const _Navbar = (props) => {
                     <Link to="/ummeldung">
                       <a className="r" onclick="scrollWin()">
                         UMMELDUNG
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/vertragsaenderungen">
+                      <a className="r" onclick="scrollWin()">
+                        VERTRAGSÄNDERUNGEN
                       </a>
                     </Link>
                   </li>

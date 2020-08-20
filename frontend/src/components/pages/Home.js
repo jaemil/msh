@@ -2,28 +2,50 @@ import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import TextLoop from "react-text-loop";
 import logo from "../../img/logo.png";
+import banner from "../../img/Banner.png";
 
 function Home() {
   return (
     <div>
-      {/* <Explosion size="400" delay={0} repeatDelay={0} repeat={5} />; */}
       <div className="blackContainer ">
         <div
           style={{
             backgroundColor: "black",
             display: "flex",
             justifyContent: "center",
+            opacity: 0.1,
           }}
         >
           <img
             style={{
               backgroundColor: "black",
               width: "70%",
-              marginBottom: "50px",
               marginTop: "50px",
             }}
-            src={logo}
+            src={banner}
           ></img>
+        </div>
+
+        <div className="homeTextContainer">
+          <p className="homeTextLetter">H</p>
+          <p className="homeTextLetter">e</p>
+          <p className="homeTextLetter">r</p>
+          <p className="homeTextLetter">z</p>
+          <p className="homeTextLetter">l</p>
+          <p className="homeTextLetter">i</p>
+          <p className="homeTextLetter">c</p>
+          <p className="homeTextLetter">h</p>{" "}
+          <p className="homeTextLetter">w</p>
+          <p className="homeTextLetter">i</p>
+          <p className="homeTextLetter">l</p>
+          <p className="homeTextLetter">l</p>
+          <p className="homeTextLetter">k</p>
+          <p className="homeTextLetter">o</p>
+          <p className="homeTextLetter">m</p>
+          <p className="homeTextLetter">m</p>
+          <p className="homeTextLetter">e</p>
+          <p className="homeTextLetter">n</p>
+          <p className="homeTextLetter">!</p>
         </div>
 
         <div className="centerText">
@@ -34,7 +56,7 @@ function Home() {
             <a className="logoText logoTextWraperR">🥁 Schlagzeug</a>
             <a className="logoText logoTextWraperB">🎶 Flöte</a>
             <a className="logoText logoTextWraperO">🎸 Bass</a>
-            <a className="logoText logoTextWraperR">🎤 Gesang</a>
+            <a className="logoText logoTextWraperR">🎤 Singen</a>
             <a className="logoText logoTextWraperB">🎹 Klavier</a>
           </TextLoop>
 
@@ -49,7 +71,18 @@ function Home() {
           }}
         >
           <Link to="anmeldung">
-            <button>Jetzt Anmelden</button>
+            <button
+              style={{
+                border: "0",
+                color: "white",
+                borderRadius: "10px",
+                padding: "10px",
+                backgroundColor: "rgb(12,12,12)",
+                fontWeight: "bold",
+              }}
+            >
+              Jetzt Anmelden
+            </button>
           </Link>
         </div>
       </div>

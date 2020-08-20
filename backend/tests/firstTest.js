@@ -39,9 +39,17 @@ module.exports = {
 
       //Aufmerksam geworden durch
 
-      .assert.visible('textarea[name="oa_anmerkungen"]')
+      .assert.visible('input[name="oa_bf_7"]')
+      .setValue('input[name="oa_bf_7"]', process.env.unterrichtsEinheit)
+
+      .assert.visible('input[name="oa_bf_6"]')
+      .setValue('input[name="oa_bf_6"]', process.env.unterrichtsTurnus)
+      .assert.visible('input[name="oa_bf_2"]')
+      .setValue('input[name="oa_bf_2"]', process.env.unterrichtsDauer)
+
+      .assert.visible('input[name="oa_bf_8"]')
       .setValue(
-        'textarea[name="oa_anmerkungen"]',
+        'input[name="oa_bf_8"]',
         "Montag: " +
           process.env.montagVon +
           " - " +
@@ -67,8 +75,6 @@ module.exports = {
           " - " +
           process.env.freitagBis
       )
-
-      //Fach
 
       .assert.visible('input[name="oa_e_vorname"]')
       .setValue(

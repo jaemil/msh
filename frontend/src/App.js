@@ -29,6 +29,7 @@ import Impressum from "./components/pages/sekretariat/Impressum";
 import Info from "./components/pages/Info";
 import StudentList from "./components/pages/admin/StudentList";
 import VerifyAnmeldung from "./components/pages/VerifyAnmeldung";
+import Vertragsaenderungen from "./components/pages/sekretariat/Vertragsaenderungen";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/gebuehren" component={Gebuehren} />
           <Route path="/schulordnung" component={Schulordung} />
           <Route path="/ummeldung" component={Ummeldung} />
+          <Route path="/vertragsaenderungen" component={Vertragsaenderungen} />
           <Route path="/admin" component={StudentList} />
           <Route path="/verify" component={VerifyAnmeldung} />
         </Switch>

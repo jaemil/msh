@@ -1,37 +1,116 @@
-import React, { Component } from 'react'
-import {
-    Link
-} from "react-router-dom";
+import React, { Component } from "react";
+import Collapsible from "react-collapsible";
 
-function Info()
-{
-    return (
-        <div>
-            <h2 className = "g">Info's</h2>
-            <div className ="blackContainer">
-                <p style={{ fontWeight: "bold" }}>Corona-Krise</p>
-                <p style={{ color: "#E85648", fontWeight: "bold", fontSize: "25px"}}>Wichtig!</p>
-                <p style={{ color: "#E85648", fontWeight: "bold" }}>Aufgrund der aktuellen Lage werden und müssen wir den Schulbetrieb
-                sicherheitshalber für die kommenden 3 Wochen bis einschließlich den
-                Osterferien einstellen!</p>
+import { Link } from "react-router-dom";
 
-                <p>Wir hoffen sehr, dass es nach den Osterferien in der Musikschule weitergehen kann
-                und halten euch auf dem Laufenden.</p>
+function Info() {
+  return (
+    <div>
+      <h2 className="g">Info's</h2>
 
-<br/>
+      <Collapsible
+        trigger={
+          <div className="img_text_hover" style={{ padding: "10px" }}>
+            Wichtig!!! Was ist während der{" "}
+            <a style={{ fontWeight: "bold", color: "rgb(61, 192, 151)" }}>
+              Corona-Zeit
+            </a>{" "}
+            in der Musikschule zu beachten:
+          </div>
+        }
+      >
+        <p>
+          Weil uns unsere Erfahrung gelehrt hat, dass man innerhalb einer kurzen
+          Zeit niemanden gerecht werden kann. Im Gitarrenunterricht z.B. lernt
+          man in der ersten Stunde nur die richtige Sitz- / und Handhaltung.
+          Auch zwischenmenschlich braucht es manchmal etwas Zeit...{" "}
+        </p>
+      </Collapsible>
 
-                <p>Für diejenigen, die es nicht mehr aushalten können!</p>
-                <Link to="/anmeldung"><p style={{ fontWeight: "bold" }}>Anmeldung</p></Link>
-                <br />
-                <p>Ferien und bewegliche Ferientage:</p>
-                <Link to="/ferienkalender"><p style={{fontWeight: "bold"}}>Ferienkalender</p></Link>
-                <br />
-                <p style={{ fontWeight: "bold" }}>Habt ihr Fragen?</p>
-                <p>Fon: 07021 – 482 797</p>
-                <p>E - Mail: Info@musikschule-hopf.de</p >
-            </div>
+      <Link to="/fragen_antworten">
+        <div
+          className="img_text_hover"
+          style={{
+            padding: "10px",
+            color: "white",
+            cursor: "pointer",
+            marginLeft: "10px",
+            marginRight: "10px",
+          }}
+        >
+          Zeit sparen - schnelle{" "}
+          <a style={{ fontWeight: "bold", color: "rgb(61, 192, 151)" }}>
+            Antworten
+          </a>{" "}
+          auf dringende{" "}
+          <a style={{ fontWeight: "bold", color: "rgb(61, 192, 151)" }}>
+            Fragen
+          </a>{" "}
+          findest du hier:
         </div>
-    )
+      </Link>
+
+      <Link to="/anmeldung">
+        <div
+          className="img_text_hover"
+          style={{
+            padding: "10px",
+            color: "white",
+            cursor: "pointer",
+            marginTop: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+          }}
+        >
+          Für Schnellentschlossene - hier gehts direkt zur{" "}
+          <a style={{ fontWeight: "bold", color: "rgb(61, 192, 151)" }}>
+            Online-Anmeldung
+          </a>
+          :
+        </div>
+      </Link>
+
+      <Link to="/ferienkalender">
+        <div
+          className="img_text_hover"
+          style={{
+            padding: "10px",
+            color: "white",
+            cursor: "pointer",
+            marginTop: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+          }}
+        >
+          Wann findet immer Musikschulunterricht statt? Der{" "}
+          <a style={{ fontWeight: "bold", color: "rgb(61, 192, 151)" }}>
+            Ferienkalender
+          </a>{" "}
+          lügt nicht 🙂!
+        </div>
+      </Link>
+
+      <Link to="/musikschul_team">
+        <div
+          className="img_text_hover"
+          style={{
+            padding: "10px",
+            color: "white",
+            cursor: "pointer",
+            marginTop: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+          }}
+        >
+          Ein Blick auf uns{" "}
+          <a style={{ fontWeight: "bold", color: "rgb(61, 192, 151)" }}>
+            Lehrkräfte
+          </a>
+          :
+        </div>
+      </Link>
+    </div>
+  );
 }
 
-export default Info
+export default Info;

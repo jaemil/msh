@@ -52,7 +52,6 @@ export default class Buero extends Component {
               gridTemplateColumns: "0.5fr 1fr",
               gridTemplateRows: "repeat(5, 1fr)",
               backgroundColor: "black",
-              alignItems: "center",
             }}
           >
             <div
@@ -84,8 +83,8 @@ export default class Buero extends Component {
             <div
               style={{ backgroundColor: "black", gridArea: "3 / 2 / 4 / 3" }}
             >
-              Montag und Dienstag 9.00 Uhr - 15.00 Uhr. In den Schulferien ist
-              das Büro nur gelegentlich geöffnet.
+              Montag und Dienstag 9.00 Uhr - 15.00 Uhr. <br />
+              In den Schulferien ist das Büro nur gelegentlich geöffnet.
             </div>
             <div
               style={{
@@ -136,7 +135,6 @@ export default class Buero extends Component {
               gridTemplateColumns: "0.5fr 1fr",
               gridTemplateRows: "repeat(5, 1fr)",
               backgroundColor: "black",
-              alignItems: "center",
             }}
           >
             <div

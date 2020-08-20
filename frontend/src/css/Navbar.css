@@ -6,8 +6,8 @@
 
 @media only screen and (min-width: 992px) /*destop*/ {
   .logo {
-    width: 400px;
-    padding: 50px 0px 20px 0px;
+    width: 200px;
+    padding: 30px 0px 20px 0px;
     background-color: transparent;
     background-color: rgb(30, 30, 30);
     height: auto;
@@ -32,7 +32,7 @@
 
 h1/*nav*/ {
   font-family: "Hwyl fawr Hello";
-  font-size: 33px !important;
+  font-size: 40px !important;
   font-weight: bold !important;
   padding: 3px 10px 3px 10px;
   background-color: rgb(30, 30, 30);
@@ -100,7 +100,7 @@ font {
 }
 
 .nav ul li ul li {
-  width: 140px;
+  width: 160px;
   border-radius: 4px;
 }
 
@@ -229,19 +229,34 @@ font {
 .noteAnimation {
   width: 20px;
   background-color: transparent;
-  position: absolute;
+  position: relative;
   height: auto;
-  transform: translate(-1500%, 120%);
+  left: -145px;
+  top: -10px;
+
   z-index: 1000;
-  offset-path: path("M -10 -20 L 100 -35");
-  animation: move 2s linear infinite;
+  offset-path: path("M 0 0 C 40 -80, 100 80, 150 -50");
+  offset-rotate: 0deg;
+  animation: move 2.5s linear infinite;
 }
 
 @keyframes move {
+  0% {
+    opacity: 0%;
+    offset-rotate: -10deg;
+  }
+  50% {
+    opacity: 100%;
+    offset-rotate: 20deg;
+  }
+  80% {
+    opacity: 0%;
+  }
   100% {
-    motion-offset: 100%; /* Old */
     offset-distance: 100%; /* New */
     opacity: 0%;
+    offset-rotate: -20deg;
+    filter: brightness(2);
   }
 }
 
@@ -266,8 +281,8 @@ font {
   position: fixed;
   width: 36px;
   height: 30px;
-  left: 300px;
-  top: 36px;
+  right: 20px;
+  top: 40px;
   background: transparent;
 }
 

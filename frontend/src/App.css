@@ -266,7 +266,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   .Collapsible__trigger {
-    font-size: 18px;
+    font-size: 20px !important;
     font-weight: normal;
     color: white;
     background-color: transparent;
@@ -295,6 +295,15 @@ body::-webkit-scrollbar-thumb {
   }
 
   /*Page: Fragen Antworten*/
+
+  .homeTextContainer {
+    background-color: transparent;
+    text-align: center;
+    font-size: 40px !important;
+    font-weight: bold;
+    color: white;
+    margin: -105px 0px 100px 0px !important;
+  }
 }
 
 @media only screen and (min-width: 992px) /*destop*/ {
@@ -347,6 +356,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 20px;
     padding: 10px;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
+    font-size: 18px;
   }
 
   .img_text_hover:hover {
@@ -527,7 +537,99 @@ body::-webkit-scrollbar-thumb {
   color: white;
 }
 
+.horizontalHr {
+}
 
-.horizontalHr{
+.homeTextContainer {
+  background-color: transparent;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  margin: -235px 0px 200px 0px;
+}
 
+.homeTextLetter {
+  animation-name: letterAnimation;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  filter: drop-shadow(0 0 4px white);
+  padding: 0;
+}
+
+.homeTextLetter:nth-child(1) {
+  animation-delay: 20ms;
+}
+.homeTextLetter:nth-child(2) {
+  animation-delay: 40ms;
+}
+.homeTextLetter:nth-child(3) {
+  animation-delay: 60ms;
+}
+.homeTextLetter:nth-child(4) {
+  animation-delay: 80ms;
+}
+.homeTextLetter:nth-child(5) {
+  animation-delay: 100ms;
+}
+.homeTextLetter:nth-child(6) {
+  animation-delay: 120ms;
+}
+.homeTextLetter:nth-child(7) {
+  animation-delay: 140ms;
+}
+.homeTextLetter:nth-child(8) {
+  animation-delay: 160ms;
+}
+.homeTextLetter:nth-child(9) {
+  animation-delay: 180ms;
+}
+.homeTextLetter:nth-child(10) {
+  animation-delay: 200ms;
+}
+.homeTextLetter:nth-child(11) {
+  animation-delay: 220ms;
+}
+.homeTextLetter:nth-child(12) {
+  animation-delay: 240ms;
+}
+.homeTextLetter:nth-child(13) {
+  animation-delay: 260ms;
+}
+.homeTextLetter:nth-child(14) {
+  animation-delay: 280ms;
+}
+.homeTextLetter:nth-child(15) {
+  animation-delay: 300ms;
+}
+.homeTextLetter:nth-child(16) {
+  animation-delay: 320ms;
+}
+.homeTextLetter:nth-child(17) {
+  animation-delay: 340ms;
+}
+.homeTextLetter:nth-child(18) {
+  animation-delay: 360ms;
+}
+.homeTextLetter:nth-child(19) {
+  animation-delay: 380ms;
+}
+
+@keyframes letterAnimation {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
